@@ -1,0 +1,404 @@
+{
+ "actions": [],
+ "allow_import": 1,
+ "allow_rename": 1,
+ "autoname": "field:license_plate",
+ "creation": "2016-09-03 03:33:27.680331",
+ "doctype": "DocType",
+ "document_type": "Document",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "ownership",
+  "license_plate",
+  "make",
+  "column_break_3",
+  "vehical_type",
+  "model",
+  "company",
+  "vehicle_details",
+  "last_odometer",
+  "make_date",
+  "acquisition_date",
+  "location",
+  "is_company_vehicle",
+  "driver",
+  "department",
+  "employee",
+  "column_break_8",
+  "chassis_no",
+  "engine_no",
+  "hengine_power",
+  "vehicle_value",
+  "market_value",
+  "driver_name",
+  "employee_name",
+  "insurance_details",
+  "insurance_company",
+  "insurance_abr",
+  "policy_no",
+  "tracker",
+  "sum_insured",
+  "column_break_15",
+  "start_date",
+  "end_date",
+  "premium",
+  "rate",
+  "additional_details",
+  "fuel_type",
+  "uom",
+  "carbon_check_date",
+  "column_break_21",
+  "color",
+  "wheels",
+  "doors",
+  "amended_from",
+  "last_fuel_odometer",
+  "last_service_odometer"
+ ],
+ "fields": [
+  {
+   "fieldname": "ownership",
+   "fieldtype": "Link",
+   "in_standard_filter": 1,
+   "label": "Ownership",
+   "options": "Vehicle Ownership"
+  },
+  {
+   "fieldname": "license_plate",
+   "fieldtype": "Data",
+   "label": "License Plate",
+   "no_copy": 1,
+   "reqd": 1,
+   "unique": 1
+  },
+  {
+   "fieldname": "make",
+   "fieldtype": "Data",
+   "label": "Make",
+   "reqd": 1
+  },
+  {
+   "fieldname": "column_break_3",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "vehical_type",
+   "fieldtype": "Select",
+   "label": "Vehical Type",
+   "options": "Car\nBike\nTruck\nGenerator"
+  },
+  {
+   "fieldname": "model",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "in_standard_filter": 1,
+   "label": "Model",
+   "reqd": 1
+  },
+  {
+   "fieldname": "company",
+   "fieldtype": "Link",
+   "hidden": 1,
+   "label": "Company",
+   "options": "Company",
+   "print_hide": 1,
+   "report_hide": 1
+  },
+  {
+   "fieldname": "vehicle_details",
+   "fieldtype": "Section Break",
+   "label": "Details"
+  },
+  {
+   "fieldname": "last_odometer",
+   "fieldtype": "Int",
+   "in_list_view": 1,
+   "label": "Odometer Value (Last)",
+   "no_copy": 1,
+   "read_only": 1
+  },
+  {
+   "fieldname": "make_date",
+   "fieldtype": "Date",
+   "label": "Make Date"
+  },
+  {
+   "fieldname": "acquisition_date",
+   "fieldtype": "Date",
+   "label": "Acquisition Date"
+  },
+  {
+   "fieldname": "location",
+   "fieldtype": "Link",
+   "label": "Location",
+   "options": "Vehicle Location"
+  },
+  {
+   "default": "0",
+   "fieldname": "is_company_vehicle",
+   "fieldtype": "Check",
+   "label": "is Company Vehicle"
+  },
+  {
+   "depends_on": "eval:doc.is_company_vehicle !=1;",
+   "fieldname": "driver",
+   "fieldtype": "Link",
+   "label": "Driver",
+   "options": "Driver"
+  },
+  {
+   "depends_on": "is_company_vehicle",
+   "fieldname": "department",
+   "fieldtype": "Link",
+   "label": "Department",
+   "options": "Department"
+  },
+  {
+   "depends_on": "eval:doc.is_company_vehicle !=1;",
+   "fieldname": "employee",
+   "fieldtype": "Link",
+   "in_standard_filter": 1,
+   "label": "Employee",
+   "options": "Employee"
+  },
+  {
+   "fieldname": "column_break_8",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "chassis_no",
+   "fieldtype": "Data",
+   "label": "Chassis No"
+  },
+  {
+   "fieldname": "engine_no",
+   "fieldtype": "Data",
+   "label": "Engine No"
+  },
+  {
+   "fieldname": "hengine_power",
+   "fieldtype": "Data",
+   "label": "H/Engine Power"
+  },
+  {
+   "fieldname": "vehicle_value",
+   "fieldtype": "Currency",
+   "in_list_view": 1,
+   "label": "Purchase Value",
+   "print_hide_if_no_value": 1
+  },
+  {
+   "fieldname": "market_value",
+   "fieldtype": "Currency",
+   "label": "Market Value",
+   "precision": "0"
+  },
+  {
+   "depends_on": "eval:doc.is_company_vehicle !=1;",
+   "fetch_from": "driver.full_name",
+   "fieldname": "driver_name",
+   "fieldtype": "Data",
+   "label": "Driver Name",
+   "read_only": 1
+  },
+  {
+   "depends_on": "eval:doc.is_company_vehicle !=1;",
+   "fetch_from": "employee.employee_name",
+   "fieldname": "employee_name",
+   "fieldtype": "Data",
+   "label": "Employee Name",
+   "read_only": 1
+  },
+  {
+   "fieldname": "insurance_details",
+   "fieldtype": "Section Break",
+   "hidden": 1,
+   "label": "Insurance Details"
+  },
+  {
+   "fieldname": "insurance_company",
+   "fieldtype": "Link",
+   "hidden": 1,
+   "label": "Insurance Company",
+   "options": "Insurance Company"
+  },
+  {
+   "fetch_from": "insurance_company.short_title",
+   "fieldname": "insurance_abr",
+   "fieldtype": "Data",
+   "hidden": 1,
+   "label": "Insurance ABR",
+   "read_only": 1
+  },
+  {
+   "fieldname": "policy_no",
+   "fieldtype": "Data",
+   "hidden": 1,
+   "label": "Policy No"
+  },
+  {
+   "fieldname": "tracker",
+   "fieldtype": "Link",
+   "hidden": 1,
+   "label": "Tracker",
+   "options": "Tracker"
+  },
+  {
+   "fieldname": "sum_insured",
+   "fieldtype": "Currency",
+   "hidden": 1,
+   "label": "Sum Insured",
+   "precision": "0"
+  },
+  {
+   "fieldname": "column_break_15",
+   "fieldtype": "Column Break",
+   "hidden": 1
+  },
+  {
+   "fieldname": "start_date",
+   "fieldtype": "Date",
+   "hidden": 1,
+   "label": "Start Date"
+  },
+  {
+   "fieldname": "end_date",
+   "fieldtype": "Date",
+   "hidden": 1,
+   "label": "End Date"
+  },
+  {
+   "fieldname": "premium",
+   "fieldtype": "Float",
+   "hidden": 1,
+   "label": "Premium",
+   "precision": "0"
+  },
+  {
+   "description": "Put rate in %",
+   "fieldname": "rate",
+   "fieldtype": "Percent",
+   "hidden": 1,
+   "label": "Rate",
+   "precision": "3"
+  },
+  {
+   "fieldname": "additional_details",
+   "fieldtype": "Section Break",
+   "label": "Additional Details"
+  },
+  {
+   "fieldname": "fuel_type",
+   "fieldtype": "Select",
+   "in_list_view": 1,
+   "label": "Fuel Type",
+   "options": "Petrol\nAltron Premier\nHi-Octane\nDiesel\nNatural Gas\nElectric",
+   "reqd": 1
+  },
+  {
+   "fieldname": "uom",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "Fuel UOM",
+   "options": "UOM",
+   "reqd": 1
+  },
+  {
+   "fieldname": "carbon_check_date",
+   "fieldtype": "Date",
+   "label": "Last Carbon Check"
+  },
+  {
+   "fieldname": "column_break_21",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "color",
+   "fieldtype": "Data",
+   "label": "Color"
+  },
+  {
+   "fieldname": "wheels",
+   "fieldtype": "Int",
+   "label": "Wheels"
+  },
+  {
+   "fieldname": "doors",
+   "fieldtype": "Int",
+   "label": "Doors"
+  },
+  {
+   "fieldname": "amended_from",
+   "fieldtype": "Link",
+   "label": "Amended From",
+   "no_copy": 1,
+   "options": "Vehicle",
+   "print_hide": 1,
+   "read_only": 1
+  },
+  {
+   "default": "0",
+   "fieldname": "last_fuel_odometer",
+   "fieldtype": "Data",
+   "hidden": 1,
+   "label": "Last Fuel Odometer"
+  },
+  {
+   "default": "0",
+   "fieldname": "last_service_odometer",
+   "fieldtype": "Data",
+   "hidden": 1,
+   "label": "Last Service Odometer"
+  }
+ ],
+ "links": [],
+ "modified": "2025-08-13 13:01:18.660540",
+ "modified_by": "Administrator",
+ "module": "Fleet System",
+ "name": "Vehicle",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "Fleet Manager",
+   "share": 1,
+   "write": 1
+  },
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "All",
+   "share": 1,
+   "write": 1
+  },
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "Fleet User",
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "quick_entry": 1,
+ "search_fields": "license_plate,location,model",
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "track_changes": 1
+}

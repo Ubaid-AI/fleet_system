@@ -1,0 +1,142 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "autoname": "format: {card_number}-{billing_month}",
+ "creation": "2023-05-23 17:22:33.596713",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "card_number",
+  "card_name",
+  "column_break_3",
+  "billing_month",
+  "usage_details_section",
+  "quantity",
+  "fuel_amount_before_discount",
+  "non_fuel_amount_before_discount",
+  "column_break_9",
+  "fuel_discount",
+  "non_fuel_discount",
+  "total",
+  "amended_from"
+ ],
+ "fields": [
+  {
+   "fieldname": "card_number",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "Card Number",
+   "options": "PSO Fleet Card",
+   "reqd": 1
+  },
+  {
+   "fetch_from": "card_number.employee_name",
+   "fieldname": "card_name",
+   "fieldtype": "Data",
+   "label": "Card Assigned To"
+  },
+  {
+   "fieldname": "column_break_3",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "billing_month",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Billing Month",
+   "reqd": 1
+  },
+  {
+   "fieldname": "usage_details_section",
+   "fieldtype": "Section Break",
+   "label": "Usage Details"
+  },
+  {
+   "fieldname": "quantity",
+   "fieldtype": "Float",
+   "in_list_view": 1,
+   "label": "Quantity",
+   "reqd": 1
+  },
+  {
+   "fieldname": "fuel_amount_before_discount",
+   "fieldtype": "Float",
+   "in_list_view": 1,
+   "label": "Fuel Amount Before Discount",
+   "reqd": 1
+  },
+  {
+   "fieldname": "non_fuel_amount_before_discount",
+   "fieldtype": "Float",
+   "label": "Non Fuel Amount Before Discount"
+  },
+  {
+   "fieldname": "column_break_9",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "fuel_discount",
+   "fieldtype": "Float",
+   "label": "Fuel Discount"
+  },
+  {
+   "fieldname": "non_fuel_discount",
+   "fieldtype": "Float",
+   "label": "Non Fuel Discount"
+  },
+  {
+   "fieldname": "total",
+   "fieldtype": "Float",
+   "label": "Total"
+  },
+  {
+   "fieldname": "amended_from",
+   "fieldtype": "Link",
+   "label": "Amended From",
+   "no_copy": 1,
+   "options": "PSO Card Usage",
+   "print_hide": 1,
+   "read_only": 1
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "is_submittable": 1,
+ "links": [],
+ "modified": "2025-08-13 12:57:20.454397",
+ "modified_by": "Administrator",
+ "module": "Fleet System",
+ "name": "PSO Card Usage",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  },
+  {
+   "amend": 1,
+   "create": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "Fleet Manager",
+   "select": 1,
+   "share": 1,
+   "submit": 1,
+   "write": 1
+  }
+ ],
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "track_changes": 1
+}

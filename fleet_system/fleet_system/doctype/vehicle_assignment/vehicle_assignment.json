@@ -1,0 +1,141 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "autoname": "format:{vehicle}-{####}",
+ "creation": "2023-04-13 14:51:01.321038",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "vehicle",
+  "update_employee",
+  "update_location",
+  "current_location",
+  "new_location",
+  "column_break_6",
+  "department",
+  "current_employee",
+  "new_employee",
+  "assignment_date",
+  "amended_from"
+ ],
+ "fields": [
+  {
+   "fieldname": "vehicle",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "Vehicle",
+   "options": "Vehicle",
+   "reqd": 1
+  },
+  {
+   "default": "0",
+   "fieldname": "update_employee",
+   "fieldtype": "Check",
+   "label": "Update Employee"
+  },
+  {
+   "default": "0",
+   "fieldname": "update_location",
+   "fieldtype": "Check",
+   "label": "Update Location"
+  },
+  {
+   "depends_on": "update_location",
+   "fetch_from": "vehicle.location",
+   "fieldname": "current_location",
+   "fieldtype": "Data",
+   "label": "Current Location",
+   "mandatory_depends_on": "update_location"
+  },
+  {
+   "depends_on": "update_location",
+   "fieldname": "new_location",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "New Location",
+   "mandatory_depends_on": "update_location",
+   "options": "Vehicle Location"
+  },
+  {
+   "fieldname": "column_break_6",
+   "fieldtype": "Column Break"
+  },
+  {
+   "depends_on": "update_location",
+   "fieldname": "department",
+   "fieldtype": "Link",
+   "label": "Department",
+   "options": "Department"
+  },
+  {
+   "depends_on": "update_employee",
+   "fetch_from": "vehicle.employee_name",
+   "fieldname": "current_employee",
+   "fieldtype": "Data",
+   "label": "Current Employee",
+   "mandatory_depends_on": "update_employee"
+  },
+  {
+   "depends_on": "update_employee",
+   "fieldname": "new_employee",
+   "fieldtype": "Link",
+   "label": "New Employee",
+   "options": "Employee"
+  },
+  {
+   "fieldname": "assignment_date",
+   "fieldtype": "Date",
+   "in_list_view": 1,
+   "label": "Assignment Date",
+   "reqd": 1
+  },
+  {
+   "fieldname": "amended_from",
+   "fieldtype": "Link",
+   "label": "Amended From",
+   "no_copy": 1,
+   "options": "Vehicle Assignment",
+   "print_hide": 1,
+   "read_only": 1
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "is_submittable": 1,
+ "links": [],
+ "modified": "2025-08-13 12:57:17.885452",
+ "modified_by": "Administrator",
+ "module": "Fleet System",
+ "name": "Vehicle Assignment",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  },
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "Fleet Manager",
+   "share": 1,
+   "submit": 1,
+   "write": 1
+  }
+ ],
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "track_changes": 1
+}

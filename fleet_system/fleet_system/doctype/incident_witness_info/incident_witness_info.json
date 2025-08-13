@@ -1,0 +1,37 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "creation": "2023-03-29 11:03:03.355964",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "witness_name",
+  "contact"
+ ],
+ "fields": [
+  {
+   "fieldname": "witness_name",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Witness Name"
+  },
+  {
+   "fieldname": "contact",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Contact"
+  }
+ ],
+ "istable": 1,
+ "links": [],
+ "modified": "2025-08-13 12:57:30.021814",
+ "modified_by": "Administrator",
+ "module": "Fleet System",
+ "name": "Incident Witness Info",
+ "owner": "Administrator",
+ "permissions": [],
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "track_changes": 1
+}

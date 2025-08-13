@@ -1,0 +1,90 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "autoname": "format: {license_plate}-{date}",
+ "creation": "2023-05-18 17:00:29.345326",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "license_plate",
+  "odometer_reading",
+  "column_break_3",
+  "date",
+  "invoice_ref",
+  "current_reading"
+ ],
+ "fields": [
+  {
+   "fieldname": "license_plate",
+   "fieldtype": "Link",
+   "label": "License Plate",
+   "options": "Vehicle",
+   "reqd": 1
+  },
+  {
+   "fieldname": "odometer_reading",
+   "fieldtype": "Attach",
+   "label": "Odometer Reading"
+  },
+  {
+   "fieldname": "column_break_3",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "date",
+   "fieldtype": "Date",
+   "label": "Date",
+   "reqd": 1
+  },
+  {
+   "fieldname": "invoice_ref",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Invoice Ref"
+  },
+  {
+   "fieldname": "current_reading",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Current Reading"
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "links": [],
+ "modified": "2025-08-13 12:57:18.815741",
+ "modified_by": "Administrator",
+ "module": "Fleet System",
+ "name": "Odometer Readings",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  },
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "API Role",
+   "select": 1,
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "track_changes": 1
+}

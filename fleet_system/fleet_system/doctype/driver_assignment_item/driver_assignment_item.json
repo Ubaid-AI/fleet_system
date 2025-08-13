@@ -1,0 +1,127 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "creation": "2023-04-13 12:07:56.325031",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "driver",
+  "vehicle_assignment",
+  "employee_assignment",
+  "location_assignment",
+  "previous_vehicle",
+  "new_vehicle",
+  "previous_employee",
+  "new_employee",
+  "column_break_9",
+  "assignment_date",
+  "location",
+  "previous_name",
+  "new_name"
+ ],
+ "fields": [
+  {
+   "fieldname": "driver",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "Driver",
+   "options": "Driver",
+   "reqd": 1
+  },
+  {
+   "default": "0",
+   "fieldname": "vehicle_assignment",
+   "fieldtype": "Check",
+   "in_list_view": 1,
+   "label": "Vehicle Assignment"
+  },
+  {
+   "default": "0",
+   "fieldname": "employee_assignment",
+   "fieldtype": "Check",
+   "in_list_view": 1,
+   "label": "Employee Assignment"
+  },
+  {
+   "default": "0",
+   "fieldname": "location_assignment",
+   "fieldtype": "Check",
+   "in_list_view": 1,
+   "label": "Location Assignment"
+  },
+  {
+   "depends_on": "vehicle_assignment",
+   "fieldname": "previous_vehicle",
+   "fieldtype": "Data",
+   "label": "Previous Vehicle",
+   "mandatory_depends_on": "vehicle_assignment"
+  },
+  {
+   "depends_on": "vehicle_assignment",
+   "fieldname": "new_vehicle",
+   "fieldtype": "Link",
+   "label": "New Vehicle",
+   "mandatory_depends_on": "vehicle_assignment",
+   "options": "Vehicle"
+  },
+  {
+   "depends_on": "employee_assignment",
+   "fieldname": "previous_employee",
+   "fieldtype": "Data",
+   "label": "Previous Employee",
+   "mandatory_depends_on": "employee_assignment"
+  },
+  {
+   "depends_on": "employee_assignment",
+   "fieldname": "new_employee",
+   "fieldtype": "Link",
+   "label": "New Employee",
+   "mandatory_depends_on": "employee_assignment",
+   "options": "Employee"
+  },
+  {
+   "fieldname": "column_break_9",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "assignment_date",
+   "fieldtype": "Date",
+   "in_list_view": 1,
+   "label": "Assignment Date",
+   "reqd": 1
+  },
+  {
+   "depends_on": "location_assignment",
+   "fieldname": "location",
+   "fieldtype": "Link",
+   "label": "Location",
+   "mandatory_depends_on": "location_assignment",
+   "options": "Location"
+  },
+  {
+   "fetch_from": "previous_employee.employee_name",
+   "fieldname": "previous_name",
+   "fieldtype": "Data",
+   "label": "Previous Name"
+  },
+  {
+   "fetch_from": "new_employee.employee_name",
+   "fieldname": "new_name",
+   "fieldtype": "Data",
+   "label": "New Name"
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "istable": 1,
+ "links": [],
+ "modified": "2025-08-13 12:57:26.748036",
+ "modified_by": "Administrator",
+ "module": "Fleet System",
+ "name": "Driver Assignment Item",
+ "owner": "Administrator",
+ "permissions": [],
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "track_changes": 1
+}

@@ -1,0 +1,154 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "autoname": "format:{PSU}-.####",
+ "creation": "2023-04-13 14:12:29.953852",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "card_no",
+  "update_employee",
+  "update_limit",
+  "update_rate",
+  "previous_assignment",
+  "new_assignment",
+  "column_break_7",
+  "previous_limit",
+  "updated_limit",
+  "previous_rate",
+  "new_rate",
+  "assignment_date",
+  "amended_from"
+ ],
+ "fields": [
+  {
+   "fieldname": "card_no",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "Card No",
+   "options": "PSO Fleet Card",
+   "reqd": 1
+  },
+  {
+   "default": "0",
+   "fieldname": "update_employee",
+   "fieldtype": "Check",
+   "label": "Update Employee"
+  },
+  {
+   "default": "0",
+   "fieldname": "update_limit",
+   "fieldtype": "Check",
+   "label": "Update Limit"
+  },
+  {
+   "default": "0",
+   "fieldname": "update_rate",
+   "fieldtype": "Check",
+   "label": "Update Rate"
+  },
+  {
+   "depends_on": "update_employee",
+   "fieldname": "previous_assignment",
+   "fieldtype": "Data",
+   "label": "Previous Assignment",
+   "mandatory_depends_on": "update_employee"
+  },
+  {
+   "depends_on": "update_employee",
+   "fieldname": "new_assignment",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "New Assignment",
+   "mandatory_depends_on": "update_employee",
+   "options": "Employee"
+  },
+  {
+   "fieldname": "column_break_7",
+   "fieldtype": "Column Break"
+  },
+  {
+   "depends_on": "update_limit",
+   "fieldname": "previous_limit",
+   "fieldtype": "Data",
+   "label": "Previous Limit",
+   "mandatory_depends_on": "update_limit"
+  },
+  {
+   "depends_on": "update_limit",
+   "fieldname": "updated_limit",
+   "fieldtype": "Data",
+   "label": "Updated Limit",
+   "mandatory_depends_on": "update_limit"
+  },
+  {
+   "depends_on": "update_rate",
+   "fieldname": "previous_rate",
+   "fieldtype": "Data",
+   "label": "Previous Rate",
+   "mandatory_depends_on": "update_rate"
+  },
+  {
+   "depends_on": "update_rate",
+   "fieldname": "new_rate",
+   "fieldtype": "Data",
+   "label": "New Rate",
+   "mandatory_depends_on": "update_rate"
+  },
+  {
+   "fieldname": "assignment_date",
+   "fieldtype": "Date",
+   "in_list_view": 1,
+   "label": "Assignment Date",
+   "reqd": 1
+  },
+  {
+   "fieldname": "amended_from",
+   "fieldtype": "Link",
+   "label": "Amended From",
+   "no_copy": 1,
+   "options": "PSO Card Update",
+   "print_hide": 1,
+   "read_only": 1
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "is_submittable": 1,
+ "links": [],
+ "modified": "2025-08-13 12:57:27.844657",
+ "modified_by": "Administrator",
+ "module": "Fleet System",
+ "name": "PSO Card Update",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  },
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "Fleet Manager",
+   "share": 1,
+   "submit": 1,
+   "write": 1
+  }
+ ],
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "track_changes": 1
+}

@@ -1,0 +1,209 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "autoname": "naming_series:",
+ "creation": "2023-02-07 20:54:16.022596",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "license_plate",
+  "vehicle_info_section",
+  "vehicle_type",
+  "ownership",
+  "make",
+  "model",
+  "possession",
+  "column_break_8",
+  "engine_no",
+  "chassis_no",
+  "insurance_details_section",
+  "insurance_company",
+  "insurance_abr",
+  "policy_no",
+  "tracker",
+  "sum_insured",
+  "column_break_17",
+  "start_date",
+  "end_date",
+  "premium",
+  "rate",
+  "naming_series"
+ ],
+ "fields": [
+  {
+   "fieldname": "license_plate",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "in_standard_filter": 1,
+   "label": "License Plate",
+   "options": "Vehicle",
+   "reqd": 1
+  },
+  {
+   "fieldname": "vehicle_info_section",
+   "fieldtype": "Section Break",
+   "label": "Vehicle Info"
+  },
+  {
+   "fetch_from": "license_plate.vehical_type",
+   "fieldname": "vehicle_type",
+   "fieldtype": "Data",
+   "label": "Vehicle Type"
+  },
+  {
+   "fetch_from": "license_plate.ownership",
+   "fieldname": "ownership",
+   "fieldtype": "Data",
+   "label": "Ownership"
+  },
+  {
+   "fetch_from": "license_plate.make",
+   "fieldname": "make",
+   "fieldtype": "Data",
+   "label": "Make"
+  },
+  {
+   "fetch_from": "license_plate.model",
+   "fieldname": "model",
+   "fieldtype": "Data",
+   "label": "Model"
+  },
+  {
+   "fetch_from": "license_plate.employee_name",
+   "fieldname": "possession",
+   "fieldtype": "Data",
+   "label": "Possession"
+  },
+  {
+   "fieldname": "column_break_8",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fetch_from": "license_plate.engine_no",
+   "fieldname": "engine_no",
+   "fieldtype": "Data",
+   "label": "Engine No"
+  },
+  {
+   "fetch_from": "license_plate.chassis_no",
+   "fieldname": "chassis_no",
+   "fieldtype": "Data",
+   "label": "Chassis No"
+  },
+  {
+   "fieldname": "insurance_details_section",
+   "fieldtype": "Section Break",
+   "label": "Insurance Details"
+  },
+  {
+   "fieldname": "insurance_company",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "in_standard_filter": 1,
+   "label": "Insurance Company",
+   "options": "Insurance Company",
+   "reqd": 1
+  },
+  {
+   "fetch_from": "insurance_company.short_title",
+   "fieldname": "insurance_abr",
+   "fieldtype": "Data",
+   "label": "Insurance ABR",
+   "read_only": 1
+  },
+  {
+   "fieldname": "policy_no",
+   "fieldtype": "Data",
+   "label": "Policy No",
+   "reqd": 1
+  },
+  {
+   "fieldname": "tracker",
+   "fieldtype": "Link",
+   "label": "Tracker",
+   "options": "Tracker"
+  },
+  {
+   "fieldname": "sum_insured",
+   "fieldtype": "Currency",
+   "label": "Sum Insured",
+   "reqd": 1
+  },
+  {
+   "fieldname": "column_break_17",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "start_date",
+   "fieldtype": "Date",
+   "label": "Start Date",
+   "reqd": 1
+  },
+  {
+   "fieldname": "end_date",
+   "fieldtype": "Date",
+   "in_filter": 1,
+   "label": "End Date",
+   "reqd": 1
+  },
+  {
+   "fieldname": "premium",
+   "fieldtype": "Float",
+   "label": "Premium",
+   "reqd": 1
+  },
+  {
+   "fieldname": "rate",
+   "fieldtype": "Percent",
+   "label": "Rate",
+   "reqd": 1
+  },
+  {
+   "default": "V-INS-.####",
+   "fieldname": "naming_series",
+   "fieldtype": "Select",
+   "hidden": 1,
+   "label": "Series",
+   "options": "V-INS-.####",
+   "print_hide": 1,
+   "report_hide": 1
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "links": [],
+ "modified": "2025-08-13 12:57:23.338799",
+ "modified_by": "Administrator",
+ "module": "Fleet System",
+ "name": "Vehicle Insurance",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  },
+  {
+   "create": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "Fleet User",
+   "select": 1,
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "track_changes": 1
+}

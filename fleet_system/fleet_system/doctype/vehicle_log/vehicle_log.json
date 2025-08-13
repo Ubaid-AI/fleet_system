@@ -1,0 +1,263 @@
+{
+ "actions": [],
+ "allow_import": 1,
+ "autoname": "naming_series:",
+ "creation": "2016-09-03 14:14:51.788550",
+ "doctype": "DocType",
+ "document_type": "Document",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "vehicle_section",
+  "naming_series",
+  "license_plate",
+  "employee",
+  "is_company_vehicle",
+  "department",
+  "column_break_7",
+  "model",
+  "make",
+  "employee_name",
+  "invoice",
+  "odometer_reading",
+  "date",
+  "odometer",
+  "is_refueling_data",
+  "is_service_data",
+  "column_break_12",
+  "last_odometer",
+  "refuelling_details",
+  "fuel_qty",
+  "price",
+  "total_price",
+  "current_fuel_odometer",
+  "column_break_15",
+  "supplier",
+  "last_fuel_odometer",
+  "service_details",
+  "service_detail",
+  "amended_from"
+ ],
+ "fields": [
+  {
+   "fieldname": "vehicle_section",
+   "fieldtype": "Section Break",
+   "options": "fa fa-user"
+  },
+  {
+   "fieldname": "naming_series",
+   "fieldtype": "Select",
+   "label": "Series",
+   "no_copy": 1,
+   "options": "HR-VLOG-.YYYY.-",
+   "print_hide": 1,
+   "reqd": 1,
+   "set_only_once": 1
+  },
+  {
+   "fieldname": "license_plate",
+   "fieldtype": "Link",
+   "in_global_search": 1,
+   "in_list_view": 1,
+   "label": "License Plate",
+   "options": "Vehicle",
+   "reqd": 1
+  },
+  {
+   "depends_on": "eval:doc.is_company_vehicle !=1;",
+   "fetch_from": "license_plate.employee",
+   "fetch_if_empty": 1,
+   "fieldname": "employee",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "in_standard_filter": 1,
+   "label": "Employee",
+   "mandatory_depends_on": "eval:doc.is_company_vehicle !=1;",
+   "options": "Employee",
+   "read_only": 1
+  },
+  {
+   "default": "0",
+   "fetch_from": "license_plate.is_company_vehicle",
+   "fieldname": "is_company_vehicle",
+   "fieldtype": "Check",
+   "hidden": 1,
+   "label": "Is Company Vehicle"
+  },
+  {
+   "depends_on": "is_company_vehicle",
+   "fetch_from": "license_plate.department",
+   "fieldname": "department",
+   "fieldtype": "Link",
+   "label": "Department",
+   "options": "Department",
+   "read_only": 1
+  },
+  {
+   "fieldname": "column_break_7",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fetch_from": "license_plate.model",
+   "fieldname": "model",
+   "fieldtype": "Read Only",
+   "label": "Model"
+  },
+  {
+   "fetch_from": "license_plate.make",
+   "fieldname": "make",
+   "fieldtype": "Read Only",
+   "label": "Make"
+  },
+  {
+   "fetch_from": "employee.employee_name",
+   "fieldname": "employee_name",
+   "fieldtype": "Data",
+   "label": "Employee Name",
+   "read_only": 1
+  },
+  {
+   "fieldname": "invoice",
+   "fieldtype": "Data",
+   "label": "Invoice Ref"
+  },
+  {
+   "fieldname": "odometer_reading",
+   "fieldtype": "Section Break",
+   "label": "Odometer Reading"
+  },
+  {
+   "fieldname": "date",
+   "fieldtype": "Date",
+   "label": "Date",
+   "reqd": 1
+  },
+  {
+   "fieldname": "odometer",
+   "fieldtype": "Int",
+   "label": "Current Odometer value "
+  },
+  {
+   "default": "0",
+   "fieldname": "is_refueling_data",
+   "fieldtype": "Check",
+   "label": "Is Refueling Data?"
+  },
+  {
+   "default": "0",
+   "fieldname": "is_service_data",
+   "fieldtype": "Check",
+   "label": "Is Service Data?"
+  },
+  {
+   "fieldname": "column_break_12",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fetch_from": "license_plate.last_odometer",
+   "fieldname": "last_odometer",
+   "fieldtype": "Int",
+   "label": "Last Odometer Value ",
+   "read_only": 1
+  },
+  {
+   "collapsible": 1,
+   "depends_on": "is_refueling_data",
+   "fieldname": "refuelling_details",
+   "fieldtype": "Section Break",
+   "label": "Refuelling Details"
+  },
+  {
+   "fieldname": "fuel_qty",
+   "fieldtype": "Float",
+   "label": "Fuel Qty",
+   "mandatory_depends_on": "is_refueling_data"
+  },
+  {
+   "fieldname": "price",
+   "fieldtype": "Currency",
+   "label": "Fuel Price/Ltr",
+   "mandatory_depends_on": "is_refueling_data"
+  },
+  {
+   "depends_on": "is_refueling_data",
+   "fieldname": "total_price",
+   "fieldtype": "Int",
+   "label": "Fuel Price in Total ",
+   "read_only": 1
+  },
+  {
+   "fieldname": "current_fuel_odometer",
+   "fieldtype": "Data",
+   "label": "Current Fuel Odometer",
+   "mandatory_depends_on": "// is_refueling_data"
+  },
+  {
+   "fieldname": "column_break_15",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "supplier",
+   "fieldtype": "Link",
+   "label": "Supplier",
+   "mandatory_depends_on": "is_refueling_data",
+   "options": "Supplier"
+  },
+  {
+   "default": "0",
+   "fetch_from": "license_plate.last_fuel_odometer",
+   "fieldname": "last_fuel_odometer",
+   "fieldtype": "Data",
+   "label": "Last Fuel Odometer ",
+   "mandatory_depends_on": "// is_refueling_data",
+   "read_only": 1
+  },
+  {
+   "collapsible": 1,
+   "depends_on": "is_service_data",
+   "fieldname": "service_details",
+   "fieldtype": "Section Break",
+   "label": "Service Details"
+  },
+  {
+   "fieldname": "service_detail",
+   "fieldtype": "Table",
+   "mandatory_depends_on": "is_service_data",
+   "options": "Vehicle Service"
+  },
+  {
+   "fieldname": "amended_from",
+   "fieldtype": "Link",
+   "label": "Amended From",
+   "no_copy": 1,
+   "options": "Vehicle Log",
+   "print_hide": 1,
+   "read_only": 1
+  }
+ ],
+ "is_submittable": 1,
+ "links": [],
+ "modified": "2025-08-13 13:01:41.925476",
+ "modified_by": "Administrator",
+ "module": "Fleet System",
+ "name": "Vehicle Log",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "cancel": 1,
+   "create": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "Fleet Manager",
+   "share": 1,
+   "submit": 1,
+   "write": 1
+  }
+ ],
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "track_changes": 1
+}

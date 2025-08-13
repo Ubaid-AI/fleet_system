@@ -1,0 +1,252 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "autoname": "format:{vehicle}-{incident_type}",
+ "creation": "2023-03-27 15:22:22.761015",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "1_person_involved_section",
+  "full_name",
+  "position",
+  "drivers_license_no",
+  "employee_no",
+  "other_identification",
+  "column_break_8",
+  "phone_no",
+  "projectvisit_purpose",
+  "2_the_incident_section",
+  "incident_date",
+  "time",
+  "location",
+  "column_break_14",
+  "vehicle",
+  "incident_type",
+  "incident_description",
+  "3_injuries_section",
+  "anyone_injured",
+  "describe_injuries",
+  "4_witnesses_section",
+  "any_witnesses",
+  "witness_info",
+  "5_policemedical_services_section",
+  "police_notified",
+  "report_filed",
+  "police_station",
+  "column_break_25",
+  "medical_treatment_provided",
+  "medical_treatment_place",
+  "hospital_name"
+ ],
+ "fields": [
+  {
+   "fieldname": "1_person_involved_section",
+   "fieldtype": "Section Break",
+   "label": "1. Person Involved"
+  },
+  {
+   "fieldname": "full_name",
+   "fieldtype": "Data",
+   "label": "Full Name"
+  },
+  {
+   "fieldname": "position",
+   "fieldtype": "Select",
+   "label": "Position",
+   "options": "\nEmployee\nDriver\nOther"
+  },
+  {
+   "depends_on": "eval:doc.position ==\"Driver\"",
+   "fieldname": "drivers_license_no",
+   "fieldtype": "Data",
+   "label": "Driver's License No."
+  },
+  {
+   "depends_on": "eval:doc.position ==\"Employee\"",
+   "fieldname": "employee_no",
+   "fieldtype": "Link",
+   "label": "Employee",
+   "options": "Employee"
+  },
+  {
+   "depends_on": "eval:doc.position ==\"Other\"",
+   "fieldname": "other_identification",
+   "fieldtype": "Data",
+   "label": "Other Identification"
+  },
+  {
+   "fieldname": "column_break_8",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "phone_no",
+   "fieldtype": "Data",
+   "label": "Phone No."
+  },
+  {
+   "fieldname": "projectvisit_purpose",
+   "fieldtype": "Data",
+   "label": "Project/Visit Purpose"
+  },
+  {
+   "fieldname": "2_the_incident_section",
+   "fieldtype": "Section Break",
+   "label": "2. The Incident"
+  },
+  {
+   "fieldname": "incident_date",
+   "fieldtype": "Date",
+   "label": "Date of Incident"
+  },
+  {
+   "fieldname": "time",
+   "fieldtype": "Time",
+   "label": "Time"
+  },
+  {
+   "fieldname": "location",
+   "fieldtype": "Data",
+   "label": "Location"
+  },
+  {
+   "fieldname": "column_break_14",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "vehicle",
+   "fieldtype": "Link",
+   "label": "Vehicle",
+   "options": "Vehicle"
+  },
+  {
+   "fieldname": "incident_type",
+   "fieldtype": "Link",
+   "label": "Incident Type",
+   "options": "Accident Type"
+  },
+  {
+   "fieldname": "incident_description",
+   "fieldtype": "Data",
+   "label": "Incident Description"
+  },
+  {
+   "fieldname": "3_injuries_section",
+   "fieldtype": "Section Break",
+   "label": "3. Injuries"
+  },
+  {
+   "default": "0",
+   "fieldname": "anyone_injured",
+   "fieldtype": "Check",
+   "label": "Anyone Injured?"
+  },
+  {
+   "depends_on": "anyone_injured",
+   "fieldname": "describe_injuries",
+   "fieldtype": "Data",
+   "label": "Describe Injuries"
+  },
+  {
+   "fieldname": "4_witnesses_section",
+   "fieldtype": "Section Break",
+   "label": "4. Witnesses"
+  },
+  {
+   "default": "0",
+   "fieldname": "any_witnesses",
+   "fieldtype": "Check",
+   "label": "Any Witnesses?"
+  },
+  {
+   "depends_on": "any_witnesses",
+   "fieldname": "witness_info",
+   "fieldtype": "Table",
+   "label": "Witness Info",
+   "options": "Incident Witness Info"
+  },
+  {
+   "fieldname": "5_policemedical_services_section",
+   "fieldtype": "Section Break",
+   "label": "5. Police/Medical Services"
+  },
+  {
+   "default": "0",
+   "fieldname": "police_notified",
+   "fieldtype": "Check",
+   "label": "Police Notified"
+  },
+  {
+   "default": "0",
+   "depends_on": "police_notified",
+   "fieldname": "report_filed",
+   "fieldtype": "Check",
+   "label": "Report Filed"
+  },
+  {
+   "depends_on": "report_filed",
+   "fieldname": "police_station",
+   "fieldtype": "Link",
+   "label": "Police Station",
+   "options": "Police Station"
+  },
+  {
+   "fieldname": "column_break_25",
+   "fieldtype": "Column Break"
+  },
+  {
+   "default": "0",
+   "fieldname": "medical_treatment_provided",
+   "fieldtype": "Check",
+   "label": "Medical Treatment Provided?"
+  },
+  {
+   "depends_on": "medical_treatment_provided",
+   "fieldname": "medical_treatment_place",
+   "fieldtype": "Select",
+   "label": "Medical Treatment Place",
+   "options": "\nOn-Site\nHospital\nOther"
+  },
+  {
+   "depends_on": "eval:doc.medical_treatment_place ==\"Hospital\"",
+   "fieldname": "hospital_name",
+   "fieldtype": "Data",
+   "label": "Hospital Name"
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "links": [],
+ "modified": "2025-08-13 12:57:28.842646",
+ "modified_by": "Administrator",
+ "module": "Fleet System",
+ "name": "Vehicle Incident",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  },
+  {
+   "create": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "Fleet Manager",
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "track_changes": 1
+}

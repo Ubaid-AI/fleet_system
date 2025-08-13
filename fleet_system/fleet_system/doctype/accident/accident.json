@@ -1,0 +1,173 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "autoname": "format:{vehicle}-{accident_type}",
+ "creation": "2023-02-08 22:22:42.479379",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "accident",
+  "accident_type",
+  "employee",
+  "police_station",
+  "column_break_7",
+  "vehicle",
+  "accident_address",
+  "driver",
+  "reason",
+  "incident_date",
+  "insurance_detail_section",
+  "insurance",
+  "column_break_11",
+  "insurance_claim_id",
+  "insurance_claim_date",
+  "repair_detail",
+  "supplier",
+  "estimated_cost",
+  "column_break_16",
+  "repair_date",
+  "paid_cost",
+  "remarks"
+ ],
+ "fields": [
+  {
+   "fieldname": "accident",
+   "fieldtype": "Data",
+   "label": "Accident"
+  },
+  {
+   "fieldname": "accident_type",
+   "fieldtype": "Link",
+   "label": "Accident Type",
+   "options": "Accident Type"
+  },
+  {
+   "fieldname": "employee",
+   "fieldtype": "Link",
+   "label": "Employee",
+   "options": "Employee"
+  },
+  {
+   "fieldname": "police_station",
+   "fieldtype": "Link",
+   "label": "Police Station",
+   "options": "Police Station"
+  },
+  {
+   "fieldname": "column_break_7",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "vehicle",
+   "fieldtype": "Link",
+   "label": "Vehicle",
+   "options": "Vehicle"
+  },
+  {
+   "fieldname": "accident_address",
+   "fieldtype": "Data",
+   "label": "Accident Address"
+  },
+  {
+   "fieldname": "driver",
+   "fieldtype": "Link",
+   "label": "Driver",
+   "options": "Driver"
+  },
+  {
+   "fieldname": "reason",
+   "fieldtype": "Data",
+   "label": "Reason"
+  },
+  {
+   "fieldname": "incident_date",
+   "fieldtype": "Date",
+   "label": "Incident Date"
+  },
+  {
+   "fieldname": "insurance_detail_section",
+   "fieldtype": "Section Break",
+   "label": "Insurance Detail"
+  },
+  {
+   "fieldname": "insurance",
+   "fieldtype": "Link",
+   "label": "Insurance Company",
+   "options": "Insurance Company"
+  },
+  {
+   "fieldname": "column_break_11",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "insurance_claim_id",
+   "fieldtype": "Data",
+   "label": "Insurance Claim ID"
+  },
+  {
+   "fieldname": "insurance_claim_date",
+   "fieldtype": "Date",
+   "label": "Insurance Claim Date"
+  },
+  {
+   "fieldname": "repair_detail",
+   "fieldtype": "Section Break",
+   "label": "Repair Detail"
+  },
+  {
+   "fieldname": "supplier",
+   "fieldtype": "Link",
+   "label": "Supplier",
+   "options": "Supplier"
+  },
+  {
+   "fieldname": "estimated_cost",
+   "fieldtype": "Data",
+   "label": "Estimated Cost"
+  },
+  {
+   "fieldname": "column_break_16",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "repair_date",
+   "fieldtype": "Date",
+   "label": "Repair Date"
+  },
+  {
+   "fieldname": "paid_cost",
+   "fieldtype": "Data",
+   "label": "Paid Cost"
+  },
+  {
+   "fieldname": "remarks",
+   "fieldtype": "Text",
+   "label": "Remarks"
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "links": [],
+ "modified": "2025-08-13 12:57:30.815675",
+ "modified_by": "Administrator",
+ "module": "Fleet System",
+ "name": "Accident",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "track_changes": 1
+}

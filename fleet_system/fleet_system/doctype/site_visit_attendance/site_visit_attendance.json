@@ -1,0 +1,99 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "autoname": "format:{driver_name}-{current_time}",
+ "creation": "2023-06-13 16:54:40.314776",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "driver_name",
+  "current_time",
+  "address",
+  "column_break_3",
+  "location",
+  "image",
+  "amended_from"
+ ],
+ "fields": [
+  {
+   "fieldname": "driver_name",
+   "fieldtype": "Data",
+   "label": "Driver Name"
+  },
+  {
+   "fieldname": "current_time",
+   "fieldtype": "Datetime",
+   "in_list_view": 1,
+   "label": "Current Time",
+   "reqd": 1
+  },
+  {
+   "fieldname": "address",
+   "fieldtype": "Data",
+   "label": "Address",
+   "reqd": 1
+  },
+  {
+   "fieldname": "column_break_3",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "location",
+   "fieldtype": "Geolocation",
+   "in_list_view": 1,
+   "label": "Location",
+   "reqd": 1
+  },
+  {
+   "fieldname": "image",
+   "fieldtype": "Attach",
+   "label": "Image"
+  },
+  {
+   "fieldname": "amended_from",
+   "fieldtype": "Link",
+   "label": "Amended From",
+   "no_copy": 1,
+   "options": "Site Visit Attendance",
+   "print_hide": 1,
+   "read_only": 1
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "is_submittable": 1,
+ "links": [],
+ "modified": "2025-08-13 12:57:17.171945",
+ "modified_by": "Administrator",
+ "module": "Fleet System",
+ "name": "Site Visit Attendance",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  },
+  {
+   "create": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "API Role",
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "track_changes": 1
+}

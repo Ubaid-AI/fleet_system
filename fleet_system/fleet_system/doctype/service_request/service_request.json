@@ -1,0 +1,183 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "autoname": "format: {service_type}-{initiated_date}",
+ "creation": "2023-05-25 10:19:44.032249",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "license_plate",
+  "service_type",
+  "initiated_date",
+  "due_date",
+  "days_left",
+  "initiated_amount",
+  "amount",
+  "allowed_amount",
+  "column_break_3",
+  "service_image",
+  "remarks",
+  "amended_from",
+  "status",
+  "recommender_remarks"
+ ],
+ "fields": [
+  {
+   "fieldname": "license_plate",
+   "fieldtype": "Link",
+   "label": "License Plate",
+   "options": "Vehicle",
+   "reqd": 1
+  },
+  {
+   "fieldname": "service_type",
+   "fieldtype": "Link",
+   "label": "Service Type",
+   "options": "Vehicle Service Type",
+   "reqd": 1
+  },
+  {
+   "fieldname": "initiated_date",
+   "fieldtype": "Date",
+   "in_list_view": 1,
+   "label": "Initiated Date",
+   "reqd": 1,
+   "set_only_once": 1
+  },
+  {
+   "fieldname": "due_date",
+   "fieldtype": "Date",
+   "in_list_view": 1,
+   "label": "Due Date"
+  },
+  {
+   "fieldname": "days_left",
+   "fieldtype": "Int",
+   "in_list_view": 1,
+   "label": "Days Left",
+   "read_only": 1
+  },
+  {
+   "fieldname": "initiated_amount",
+   "fieldtype": "Int",
+   "hidden": 1,
+   "label": "Initiated Amount",
+   "read_only": 1
+  },
+  {
+   "fieldname": "amount",
+   "fieldtype": "Currency",
+   "in_list_view": 1,
+   "label": "Amount",
+   "permlevel": 1,
+   "precision": "0"
+  },
+  {
+   "allow_in_quick_entry": 1,
+   "fieldname": "allowed_amount",
+   "fieldtype": "Int",
+   "ignore_user_permissions": 1,
+   "in_list_view": 1,
+   "label": "Allowed Amount",
+   "precision": "0"
+  },
+  {
+   "fieldname": "column_break_3",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "service_image",
+   "fieldtype": "Attach",
+   "label": "Service Image"
+  },
+  {
+   "fieldname": "remarks",
+   "fieldtype": "Small Text",
+   "in_list_view": 1,
+   "label": "Remarks",
+   "reqd": 1
+  },
+  {
+   "fieldname": "amended_from",
+   "fieldtype": "Link",
+   "label": "Amended From",
+   "no_copy": 1,
+   "options": "Service Request",
+   "print_hide": 1,
+   "read_only": 1
+  },
+  {
+   "fieldname": "status",
+   "fieldtype": "Data",
+   "label": "Status"
+  },
+  {
+   "fieldname": "recommender_remarks",
+   "fieldtype": "Small Text",
+   "label": "Recommender Remarks"
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "is_submittable": 1,
+ "links": [],
+ "modified": "2025-08-13 12:57:15.175926",
+ "modified_by": "Administrator",
+ "module": "Fleet System",
+ "name": "Service Request",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  },
+  {
+   "create": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "Recommeder",
+   "select": 1,
+   "share": 1,
+   "write": 1
+  },
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "Approver",
+   "select": 1,
+   "share": 1,
+   "write": 1
+  },
+  {
+   "create": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "Payer",
+   "select": 1,
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "track_changes": 1
+}

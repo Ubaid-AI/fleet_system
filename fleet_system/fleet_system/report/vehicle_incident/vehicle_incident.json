@@ -1,0 +1,26 @@
+{
+ "add_total_row": 0,
+ "columns": [],
+ "creation": "2023-03-29 14:09:57.405068",
+ "disable_prepared_report": 0,
+ "disabled": 0,
+ "docstatus": 0,
+ "doctype": "Report",
+ "filters": [],
+ "idx": 0,
+ "is_standard": "Yes",
+ "modified": "2025-08-13 14:07:30.612299",
+ "modified_by": "Administrator",
+ "module": "Fleet System",
+ "name": "Vehicle Incident",
+ "owner": "Administrator",
+ "prepared_report": 0,
+ "ref_doctype": "Vehicle Incident",
+ "report_name": "Vehicle Incident",
+ "report_type": "Script Report",
+ "roles": [
+  {
+   "role": "System Manager"
+  }
+ ]
+}

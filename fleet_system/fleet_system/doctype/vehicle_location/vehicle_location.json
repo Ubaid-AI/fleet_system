@@ -1,0 +1,82 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "autoname": "field:short_title",
+ "creation": "2023-02-25 11:04:57.836248",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "short_title",
+  "title",
+  "location",
+  "column_break_4",
+  "latitude",
+  "longitude"
+ ],
+ "fields": [
+  {
+   "fieldname": "short_title",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Short Title",
+   "reqd": 1,
+   "unique": 1
+  },
+  {
+   "fieldname": "title",
+   "fieldtype": "Data",
+   "label": "Title"
+  },
+  {
+   "fieldname": "location",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Location",
+   "reqd": 1
+  },
+  {
+   "fieldname": "column_break_4",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "latitude",
+   "fieldtype": "Float",
+   "label": "Latitude"
+  },
+  {
+   "fieldname": "longitude",
+   "fieldtype": "Float",
+   "label": "Longitude"
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "links": [
+  {
+   "link_doctype": "Vehicle",
+   "link_fieldname": "location"
+  }
+ ],
+ "modified": "2025-08-13 12:57:37.737620",
+ "modified_by": "Administrator",
+ "module": "Fleet System",
+ "name": "Vehicle Location",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "track_changes": 1
+}

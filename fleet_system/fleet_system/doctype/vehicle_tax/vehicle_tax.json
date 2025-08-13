@@ -1,0 +1,347 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "autoname": "format:{license_plate}-{YYYY}-{MM}-{####}",
+ "creation": "2023-02-18 13:39:08.425669",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "vehicle_section",
+  "license_plate",
+  "tax_office_section",
+  "branch_name",
+  "column_break_5",
+  "branch_address",
+  "transfer_alteration_tax_section",
+  "challan_no",
+  "tax_date",
+  "last_amount_paid",
+  "tax_paid_from",
+  "last_challan_no",
+  "mdl_name",
+  "column_break_10",
+  "sticker_no",
+  "color",
+  "hengine_power",
+  "upto",
+  "from_date",
+  "mdl_no",
+  "section_break_17",
+  "registration_no",
+  "make",
+  "engine_no",
+  "chassis_no",
+  "column_break_24",
+  "make_date",
+  "model",
+  "owners_name",
+  "address",
+  "section_break_31",
+  "table_31",
+  "section_break_33",
+  "terminal",
+  "user_id",
+  "time",
+  "session_code",
+  "column_break_37",
+  "cash_amount",
+  "sbp_clr",
+  "bank",
+  "branch"
+ ],
+ "fields": [
+  {
+   "fieldname": "vehicle_section",
+   "fieldtype": "Section Break",
+   "label": "Vehicle"
+  },
+  {
+   "fieldname": "license_plate",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "License Plate",
+   "options": "Vehicle",
+   "reqd": 1
+  },
+  {
+   "fieldname": "tax_office_section",
+   "fieldtype": "Section Break",
+   "label": "Tax Office"
+  },
+  {
+   "fieldname": "branch_name",
+   "fieldtype": "Link",
+   "label": "Branch Name",
+   "options": "Vehicle Tax Branch"
+  },
+  {
+   "fieldname": "column_break_5",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fetch_from": "branch_name.address",
+   "fieldname": "branch_address",
+   "fieldtype": "Data",
+   "label": "Branch Address",
+   "read_only": 1
+  },
+  {
+   "fieldname": "transfer_alteration_tax_section",
+   "fieldtype": "Section Break",
+   "label": "Transfer Alteration TAX"
+  },
+  {
+   "fieldname": "challan_no",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Challan No",
+   "length": 240,
+   "reqd": 1
+  },
+  {
+   "fieldname": "tax_date",
+   "fieldtype": "Date",
+   "label": "Tax Date",
+   "reqd": 1
+  },
+  {
+   "fieldname": "last_amount_paid",
+   "fieldtype": "Currency",
+   "in_list_view": 1,
+   "label": "Last Amount Paid",
+   "precision": "0",
+   "reqd": 1
+  },
+  {
+   "fieldname": "tax_paid_from",
+   "fieldtype": "Date",
+   "label": "Tax Paid From"
+  },
+  {
+   "fieldname": "last_challan_no",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Last Challan No",
+   "reqd": 1
+  },
+  {
+   "fieldname": "mdl_name",
+   "fieldtype": "Data",
+   "label": "MDL Name"
+  },
+  {
+   "fieldname": "column_break_10",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "sticker_no",
+   "fieldtype": "Data",
+   "label": "Sticker No"
+  },
+  {
+   "fetch_from": "license_plate.color",
+   "fieldname": "color",
+   "fieldtype": "Data",
+   "label": "Color"
+  },
+  {
+   "fetch_from": "license_plate.hengine_power",
+   "fieldname": "hengine_power",
+   "fieldtype": "Data",
+   "label": "H/Engine Power"
+  },
+  {
+   "fieldname": "upto",
+   "fieldtype": "Date",
+   "label": "Upto"
+  },
+  {
+   "fieldname": "from_date",
+   "fieldtype": "Date",
+   "label": "From Date"
+  },
+  {
+   "fieldname": "mdl_no",
+   "fieldtype": "Data",
+   "label": "MDL No"
+  },
+  {
+   "fieldname": "section_break_17",
+   "fieldtype": "Section Break",
+   "label": "Vehicle Detail"
+  },
+  {
+   "fieldname": "registration_no",
+   "fieldtype": "Data",
+   "label": "Registration No"
+  },
+  {
+   "fetch_from": "license_plate.make",
+   "fieldname": "make",
+   "fieldtype": "Data",
+   "label": "Make"
+  },
+  {
+   "fetch_from": "license_plate.engine_no",
+   "fieldname": "engine_no",
+   "fieldtype": "Data",
+   "label": "Engine No"
+  },
+  {
+   "fetch_from": "license_plate.chassis_no",
+   "fieldname": "chassis_no",
+   "fieldtype": "Data",
+   "label": "Chassis No"
+  },
+  {
+   "fieldname": "column_break_24",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fetch_from": "license_plate.make_date",
+   "fieldname": "make_date",
+   "fieldtype": "Date",
+   "label": "Make Date"
+  },
+  {
+   "fetch_from": "license_plate.model",
+   "fieldname": "model",
+   "fieldtype": "Data",
+   "label": "Model"
+  },
+  {
+   "fieldname": "owners_name",
+   "fieldtype": "Data",
+   "ignore_user_permissions": 1,
+   "label": "Owner's Name",
+   "permlevel": 2
+  },
+  {
+   "fieldname": "address",
+   "fieldtype": "Link",
+   "label": "Address",
+   "options": "Address"
+  },
+  {
+   "fieldname": "section_break_31",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "table_31",
+   "fieldtype": "Table",
+   "label": "Item",
+   "options": "Vehicle Tax Item"
+  },
+  {
+   "fieldname": "section_break_33",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "terminal",
+   "fieldtype": "Data",
+   "label": "Terminal"
+  },
+  {
+   "fieldname": "user_id",
+   "fieldtype": "Data",
+   "label": "User ID"
+  },
+  {
+   "fieldname": "time",
+   "fieldtype": "Time",
+   "label": "Time"
+  },
+  {
+   "fieldname": "session_code",
+   "fieldtype": "Int",
+   "label": "Session Code"
+  },
+  {
+   "fieldname": "column_break_37",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "cash_amount",
+   "fieldtype": "Float",
+   "label": "Cash Amount",
+   "precision": "0"
+  },
+  {
+   "fieldname": "sbp_clr",
+   "fieldtype": "Data",
+   "label": "SBP Clr"
+  },
+  {
+   "fieldname": "bank",
+   "fieldtype": "Data",
+   "label": "Bank"
+  },
+  {
+   "fieldname": "branch",
+   "fieldtype": "Data",
+   "label": "Branch"
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "links": [],
+ "modified": "2025-08-13 12:57:31.937290",
+ "modified_by": "Administrator",
+ "module": "Fleet System",
+ "name": "Vehicle Tax",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  },
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "Fleet Manager",
+   "share": 1,
+   "write": 1
+  },
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "All",
+   "select": 1,
+   "share": 1,
+   "write": 1
+  },
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "Fleet User",
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "track_changes": 1
+}
