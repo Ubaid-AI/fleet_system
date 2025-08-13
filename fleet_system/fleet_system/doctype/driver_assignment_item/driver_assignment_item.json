@@ -63,7 +63,7 @@
    "fieldtype": "Link",
    "label": "New Vehicle",
    "mandatory_depends_on": "vehicle_assignment",
-   "options": "Vehicle"
+   "options": "Fleet Vehicle"
   },
   {
    "depends_on": "employee_assignment",
@@ -115,7 +115,7 @@
  "index_web_pages_for_search": 1,
  "istable": 1,
  "links": [],
- "modified": "2025-08-13 12:57:26.748036",
+ "modified": "2025-08-13 14:38:53.736358",
  "modified_by": "Administrator",
  "module": "Fleet System",
  "name": "Driver Assignment Item",

@@ -25,7 +25,7 @@
    "fieldtype": "Link",
    "in_list_view": 1,
    "label": "Vehicle",
-   "options": "Vehicle",
+   "options": "Fleet Vehicle",
    "reqd": 1
   },
   {
@@ -103,7 +103,7 @@
  "index_web_pages_for_search": 1,
  "is_submittable": 1,
  "links": [],
- "modified": "2025-08-13 12:57:17.885452",
+ "modified": "2025-08-13 14:38:51.656295",
  "modified_by": "Administrator",
  "module": "Fleet System",
  "name": "Vehicle Assignment",

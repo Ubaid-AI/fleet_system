@@ -62,7 +62,7 @@
    "fieldname": "vehicle",
    "fieldtype": "Link",
    "label": "Vehicle",
-   "options": "Vehicle"
+   "options": "Fleet Vehicle"
   },
   {
    "fieldname": "accident_address",
@@ -148,7 +148,7 @@
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2025-08-13 12:57:30.815675",
+ "modified": "2025-08-13 14:38:56.879469",
  "modified_by": "Administrator",
  "module": "Fleet System",
  "name": "Accident",

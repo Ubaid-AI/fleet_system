@@ -61,7 +61,7 @@
    "fieldtype": "Link",
    "in_list_view": 1,
    "label": "License Plate",
-   "options": "Vehicle",
+   "options": "Fleet Vehicle",
    "reqd": 1
   },
   {
@@ -285,7 +285,7 @@
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2025-08-13 12:57:31.937290",
+ "modified": "2025-08-13 14:38:58.661478",
  "modified_by": "Administrator",
  "module": "Fleet System",
  "name": "Vehicle Tax",

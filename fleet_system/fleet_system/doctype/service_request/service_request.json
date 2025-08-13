@@ -27,7 +27,7 @@
    "fieldname": "license_plate",
    "fieldtype": "Link",
    "label": "License Plate",
-   "options": "Vehicle",
+   "options": "Fleet Vehicle",
    "reqd": 1
   },
   {
@@ -121,7 +121,7 @@
  "index_web_pages_for_search": 1,
  "is_submittable": 1,
  "links": [],
- "modified": "2025-08-13 12:57:15.175926",
+ "modified": "2025-08-13 14:38:48.266831",
  "modified_by": "Administrator",
  "module": "Fleet System",
  "name": "Service Request",

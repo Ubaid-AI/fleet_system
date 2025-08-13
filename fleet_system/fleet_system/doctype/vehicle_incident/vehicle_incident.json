@@ -117,7 +117,7 @@
    "fieldname": "vehicle",
    "fieldtype": "Link",
    "label": "Vehicle",
-   "options": "Vehicle"
+   "options": "Fleet Vehicle"
   },
   {
    "fieldname": "incident_type",
@@ -216,7 +216,7 @@
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2025-08-13 12:57:28.842646",
+ "modified": "2025-08-13 14:38:54.440821",
  "modified_by": "Administrator",
  "module": "Fleet System",
  "name": "Vehicle Incident",
