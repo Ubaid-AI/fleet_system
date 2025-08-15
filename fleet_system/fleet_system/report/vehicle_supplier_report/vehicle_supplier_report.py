@@ -30,7 +30,7 @@ def get_data(filters = None):
 
 	data = frappe.db.sql("""
 		SELECT DISTINCT vl.invoice , vl.license_plate,v.employee_name, vl.make, vl.supplier, vl.fuel_qty, vl.price, vl.total_price, vl.date, vl.name as log_name
-		from `tabVehicle Log` vl, tabVehicle v, `tabVehicle Service` s
+		from `tabVehicle Log` vl, `tabFleet Vehicle` v, `tabVehicle Service` s
 		WHERE v.name = vl.license_plate and 
 		vl.date between %(start_date)s and %(end_date)s
 		and vl.docstatus = 1 {0}

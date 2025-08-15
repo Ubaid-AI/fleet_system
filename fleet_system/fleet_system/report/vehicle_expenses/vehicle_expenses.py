@@ -84,7 +84,7 @@ def get_vehicle_log_data(filters):
 		# 	log.price as fuel_price,
 		# 	log.fuel_qty * log.price as fuel_expense
 		# FROM
-		# 	`tabVehicle` vhcl,`tabVehicle Log` log
+		# 	`tabFleet Vehicle` vhcl,`tabVehicle Log` log
 		# WHERE
 		# 	vhcl.license_plate = log.license_plate
 		# 	and log.docstatus = 1

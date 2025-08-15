@@ -5,23 +5,6 @@
 frappe.require("assets/erpnext/js/vehicle_expenses_formatter.js",  function() {
 	frappe.query_reports["Vehicle Last Expenses Report"] = {
 		"filters": [
-			// {
-			// 	"fieldname": "filter_based_on",
-			// 	"label": __("Filter Based On"),
-			// 	"fieldtype": "Select",
-			// 	"options": ["Fiscal Year", "Date Range"],
-			// 	"default": ["Fiscal Year"],
-			// 	"reqd": 1
-			// },
-			// {
-			// 	"fieldname": "fiscal_year",
-			// 	"label": __("Fiscal Year"),
-			// 	"fieldtype": "Link",
-			// 	"options": "Fiscal Year",
-			// 	"default": frappe.defaults.get_user_default("fiscal_year"),
-			// 	"depends_on": "eval: doc.filter_based_on == 'Fiscal Year'",
-			// 	"reqd": 1
-			// },
 			{
 				"fieldname": "from_date",
 				"label": __("From Date"),
@@ -58,5 +41,6 @@ frappe.require("assets/erpnext/js/vehicle_expenses_formatter.js",  function() {
 			"initial_depth": 3
 		,
 	
-	};});
+	};
+});
 	

@@ -116,12 +116,12 @@ def get_data(filters = None):
 		 upto between %(start_date)s and %(end_date)s
 		and docstatus = 0 {0}""".format(conditions), values,  as_dict=1)
 	not_in_tax = frappe.db.sql(""" 
-			SELECT license_plate, employee_name, ownership  from tabVehicle tv
+			SELECT license_plate, employee_name, ownership  from `tabFleet Vehicle` tv
 			Where tv.vehical_type = 'Car' 
 			and tv.name  Not in (SELECT license_plate from `tabVehicle Tax`)
 		""", as_dict=1)
 	not_paid = frappe.db.sql(""" 
-			SELECT tv.license_plate, tv.employee_name, tv.ownership, tt.upto from tabVehicle tv, `tabVehicle Tax` tt
+			SELECT tv.license_plate, tv.employee_name, tv.ownership, tt.upto from `tabFleet Vehicle` tv, `tabVehicle Tax` tt
 			WHERE tt.upto< SYSDATE() and tv.license_plate not in (SELECT license_plate from `tabVehicle Tax` WHERE upto > SYSDATE() )
 			and tv.license_plate  = tt.license_plate 
 		""", as_dict=1)

@@ -1,16 +1,3 @@
-# Copyright (c) 2013, Frappe Technologies Pvt. Ltd. and contributors
-# For license information, please see license.txt
-
-# import frappe
-
-# def execute(filters=None):
-# 	columns, data = [], []
-# 	return columns, data
-
-
-# Copyright (c) 2013, Frappe Technologies Pvt. Ltd. and contributors
-# For license information, please see license.txt
-
 from __future__ import unicode_literals
 
 import frappe
@@ -105,7 +92,7 @@ def get_vehicle_log_data(filters):
 
 	data = frappe.db.sql("""
 	SELECT DISTINCT v.employee, v.license_plate, v.make, v.model,v.make_date, v.employee_name,v.market_value, v.driver_name, v.vehicle_value, v.sum_insured, v.tracker, v.premium, v.rate,v.location,v.ownership
-	from `tabVehicle` v, `tabInsurance Company` ic 
+	from `tabFleet Vehicle` v, `tabInsurance Company` ic 
 	WHERE
 		v.vehical_type = 'Car'
 		""".format(conditions), values, as_dict=1)

@@ -135,7 +135,7 @@ def get_vehicle_log_data(filters):
 
 	# data = frappe.db.sql("""
 	# SELECT v.employee, v.license_plate, v.make, v.model, v.make_date, v.employee_name, v.insurance_company, ic.short_title, v.vehicle_value, v.sum_insured, v.tracker, v.premium, v.rate, v.end_date as date,v.location,v.ownership
-	# from `tabVehicle` v, `tabInsurance Company` ic 
+	# from `tabFleet Vehicle` v, `tabInsurance Company` ic 
 	# WHERE
 	# 	v.vehical_type = 'Car'
 	# 	and v.end_date between %(start_date)s and %(end_date)s 
@@ -144,7 +144,7 @@ def get_vehicle_log_data(filters):
 	# ORDER BY v.insurance_company, date""".format(conditions), values, as_dict=1)
 	data = frappe.db.sql("""
 		SELECT  ic.license_plate, ic.make, ic.model, v.make_date, ic.possession, ic.insurance_abr, v.vehicle_value,ic.insurance_company, ic.sum_insured, ic.tracker, ic.premium, ic.rate, ic.end_date as date, v.location, ic.ownership
-		FROM `tabVehicle` v, `tabVehicle Insurance` ic 
+		FROM `tabFleet Vehicle` v, `tabVehicle Insurance` ic 
 		WHERE
 			v.vehical_type = 'Car'
 			and ic.end_date between SYSDATE() and %(end_date)s 
@@ -153,10 +153,10 @@ def get_vehicle_log_data(filters):
 		ORDER BY ic.insurance_company, date""".format(conditions), values, as_dict=1)
 	not_in_insurance = frappe.db.sql(""" 
 				SELECT v.license_plate, v.employee_name, v.ownership
-			from `tabVehicle` v WHERE 		v.vehical_type = 'Car'
+			from `tabFleet Vehicle` v WHERE 		v.vehical_type = 'Car'
 and  v.license_plate  Not in (SELECT license_plate from `tabVehicle Insurance`)""", as_dict=1)
 	expired = frappe.db.sql(""" 
-			SELECT DISTINCT ic.license_plate, ic.possession, ic.ownership, ic.end_date from  `tabVehicle Insurance` ic, `tabVehicle` v 
+			SELECT DISTINCT ic.license_plate, ic.possession, ic.ownership, ic.end_date from  `tabVehicle Insurance` ic, `tabFleet Vehicle` v 
 			WHERE v.vehical_type = 'Car' and ic.end_date < SYSDATE() and ic.license_plate not in 
 			(SELECT license_plate from `tabVehicle Insurance` where end_date > SYSDATE())
 			ORDER BY ic.end_date 
