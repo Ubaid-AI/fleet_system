@@ -1,0 +1,87 @@
+
+<style>
+	.text-center, th{
+		text-align: center
+	}
+	table{
+		table-layout: auto;
+		  width: 95%;
+		vertical-align: middle !important; 
+		margin-left: 48px;
+	}
+	
+	.small_table {
+	  border-collapse: collapse;
+			  table-layout: auto;
+	
+	  width: 50%;
+	}
+	.column {
+		flex: 100%;
+		padding: 5px;
+	  }
+	.row {
+		display: flex;
+		margin-left:15px;
+	  }
+	h1{
+		font-size: 30px;
+	}
+	</style>
+	
+	<h1 class="text-center"><strong>{%= __("Vehicle Incident") %}</strong></h2>
+	
+	<h4 class="text-center">
+		{% if (filters.license_plate) { %}
+			{%= filters.vehicle %}
+		{% } else if (filters.employee) { %}
+			{%= filters.employee %}
+		{% } %}
+	</h4>
+	
+	<h4 class="text-center">
+	{% if (filters.from_date) { %}
+		{%= __("Incidents From") %}
+		{%= frappe.datetime.str_to_user(filters.from_date) %}
+		{%= __("To") %}
+		{%= frappe.datetime.str_to_user(filters.to_date) %}
+	{% } %}
+	</h4>
+	<strong><p class="text-right text-muted">Printed On {%= frappe.datetime.str_to_user(frappe.datetime.get_datetime_as_string()) %}</p></strong>
+	
+	<hr>
+	<table class="table table-bordered">
+	
+	
+		<thead>
+			<tr>
+				<th>{%= __("#") %}</th>
+				<th>{%= __("License Plate") %}</th>
+				<th>{%= __("Employee") %}</th>
+				<th>{%= __("Accident Type") %}</th>
+                <th>{%= __("Incident Date") %}</th>
+				<th>{%= __("Project/Visit Purpose") %}</th>
+				<th>{%= __("Location") %}</th>
+			</tr>
+		</thead>
+	
+		<tbody>
+	
+			{% for(var i=0, l=data.length; i<l; i++) { %}
+	
+				<tr>
+					<td>{%= i+1 %}</td>
+					<td>{%= data[i].vehicle %}</td>
+					<td>{%= data[i].employee_no %}</td>
+					
+					<td>{%= data[i].incident_type %}</td>
+					<td>{%= data[i].incident_date %}</td>
+					
+					<td>{%= data[i].projectvisit_purpose %}</td>
+					
+					<td>{%= data[i].location %}</td>
+				</tr>
+			{% } %}
+		</tbody>
+	</table>
+	

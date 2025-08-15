@@ -2,7 +2,7 @@
  "actions": [],
  "allow_rename": 1,
  "autoname": "naming_series:",
- "creation": "2023-02-07 20:54:16.022596",
+ "creation": "2025-08-13 17:32:12.901644",
  "doctype": "DocType",
  "editable_grid": 1,
  "engine": "InnoDB",
@@ -172,7 +172,7 @@
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2025-08-13 14:38:52.886191",
+ "modified": "2025-08-15 11:19:58.286400",
  "modified_by": "Administrator",
  "module": "Fleet System",
  "name": "Vehicle Insurance",
@@ -205,5 +205,6 @@
  ],
  "sort_field": "modified",
  "sort_order": "DESC",
+ "states": [],
  "track_changes": 1
 }

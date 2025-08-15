@@ -356,7 +356,7 @@
  "modified": "2025-08-13 13:01:18.660540",
  "modified_by": "Administrator",
  "module": "Fleet System",
- "name": "Vehicle",
+ "name": "Fleet Vehicle",
  "owner": "Administrator",
  "permissions": [
   {

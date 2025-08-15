@@ -1,0 +1,22 @@
+{
+ "creation": "2025-08-13 18:16:31.274586",
+ "docstatus": 0,
+ "doctype": "Number Card",
+ "document_type": "Tracker",
+ "dynamic_filters_json": "[]",
+ "filters_json": "[]",
+ "function": "Count",
+ "idx": 0,
+ "is_public": 1,
+ "is_standard": 1,
+ "label": "Tracker Company",
+ "modified": "2025-08-15 11:18:43.665686",
+ "modified_by": "Administrator",
+ "module": "Fleet System",
+ "name": "Tracker",
+ "owner": "Administrator",
+ "report_function": "Sum",
+ "show_percentage_stats": 1,
+ "stats_time_interval": "Daily",
+ "type": "Document Type"
+}

@@ -60,7 +60,7 @@
    "in_global_search": 1,
    "in_list_view": 1,
    "label": "License Plate",
-   "options": "Vehicle",
+   "options": "Fleet Vehicle",
    "reqd": 1
   },
   {
@@ -237,7 +237,7 @@
  ],
  "is_submittable": 1,
  "links": [],
- "modified": "2025-08-13 13:01:41.925476",
+ "modified": "2025-08-15 11:19:57.765087",
  "modified_by": "Administrator",
  "module": "Fleet System",
  "name": "Vehicle Log",
@@ -259,5 +259,6 @@
  ],
  "sort_field": "modified",
  "sort_order": "DESC",
+ "states": [],
  "track_changes": 1
 }

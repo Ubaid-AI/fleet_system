@@ -1,0 +1,46 @@
+{
+ "cards": [
+  {
+   "card": "Total Initiated Amount"
+  },
+  {
+   "card": "Total Initiated"
+  },
+  {
+   "card": "Total Recommended Amount"
+  },
+  {
+   "card": "Total Recommended"
+  },
+  {
+   "card": "Total Approved Amount"
+  },
+  {
+   "card": "Total Approved"
+  },
+  {
+   "card": "Total Paid Amount"
+  },
+  {
+   "card": "Total Paid Requests"
+  }
+ ],
+ "charts": [
+  {
+   "chart": "Initiated over Time",
+   "width": "Full"
+  }
+ ],
+ "creation": "2025-08-15 11:26:31.188832",
+ "dashboard_name": "Service Request Dashboard",
+ "docstatus": 0,
+ "doctype": "Dashboard",
+ "idx": 0,
+ "is_default": 1,
+ "is_standard": 1,
+ "modified": "2025-08-15 11:26:31.188832",
+ "modified_by": "Administrator",
+ "module": "Fleet System",
+ "name": "Service Request Dashboard",
+ "owner": "Administrator"
+}

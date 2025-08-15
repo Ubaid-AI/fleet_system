@@ -1,7 +1,7 @@
 // Copyright (c) 2025, Ubaid Ali and contributors
 // For license information, please see license.txt
 
-frappe.ui.form.on('Vehicle', {
+frappe.ui.form.on('Fleet Vehicle', {
 	// refresh: function(frm) {
 
 	// }

@@ -1,0 +1,368 @@
+
+<style>
+	.text-center, th{
+		text-align: center
+	}
+	table{
+		table-layout: auto;
+		  width: 95%;
+		vertical-align: middle !important; 
+		margin-left: 48px;
+	}
+	
+	.small_table {
+	  border-collapse: collapse;
+			  table-layout: auto;
+	
+	  width: 50%;
+	}
+	.column {
+		flex: 100%;
+		padding: 5px;
+	  }
+	.row {
+		display: flex;
+		margin-left:15px;
+	  }
+	h1{
+		font-size: 30px;
+	}
+	</style>
+	
+	<h1 class="text-center"><strong>{%= __("Motor Vehicle Insurance") %}</strong></h2>
+	
+	<h4 class="text-right">
+		<span style="border-width:1px; border-style:solid; border-color:#000000; padding: 1px;">Date: {%= filters.to_date %}</span></h4>
+
+<h4 class="text-right">		<span style="border-width:1px; border-style:solid; border-color:#000000; padding: 1px;">Company: {% if (filters.insurance_company){ %}
+		{%= filters.insurance_company %}
+		{% } else { %}
+		 All
+		{% 	} %}</span> </h4>
+<h4 class="text-right">
+		<span style="border-width:1px; border-style:solid; border-color:#000000; padding: 1px;">Vehicle: {% if (filters.license_plate){ %}
+		{%= filters.license_plate %}
+		{% } else { %}
+		 All
+		{% 	} %}</h4>
+
+<h4 class="text-right">		<span style="border-width:1px; border-style:solid; border-color:#000000; padding: 1px;">Ownership: {% if (filters.ownership){ %}
+		{%= filters.ownership %}
+		{% } else { %}
+		 All
+		{% 	} %}</span>
+	</h4>
+	
+	<!-- <h6 class="text-center">
+		{% if (filters.fiscal_year) { %}
+		{%= __("Fiscal Year: ")%}	{%= filters.fiscal_year %}
+		{% } %}
+	</h6>
+	
+	<h4 class="text-center">
+	{% if (filters.from_date) { %}
+		{%= __("Insurance Expiry Date From") %}
+		{%= frappe.datetime.str_to_user(filters.from_date) %}
+		{%= __("To") %}
+		{%= frappe.datetime.str_to_user(filters.to_date) %}
+	{% } %}
+	</h4> -->
+	<strong><p class="text-right text-muted">Printed On {%= frappe.datetime.str_to_user(frappe.datetime.get_datetime_as_string()) %}</p></strong>
+	
+	<hr>
+	<table class="table table-bordered">
+	
+	
+		<thead>
+			<tr>
+				<th>{%= __("#") %}</th>
+				<th>{%= __("Reg: No") %}</th>
+				<th>{%= __("Possession") %}</th>
+				<th>{%= __("Model") %}</th>
+				<th>{%= __("Year") %}</th>
+				<th>{%= __("Purchase") %}</th>
+				<th>{%= __("Ownership") %}</th>
+				<th>{%= __("Insurance Company") %}</th>
+
+				<th>{%= __("Tracker Company") %}</th>
+				<th>{%= __("Sum Insured") %}</th>
+				<th>{%= __("Premium") %}</th>
+				<th style="width: 2%">{%= __("Rate") %}</th>
+				<th>{%= __("Expiry") %}</th>
+				<th>{%= __("Location") %}</th>            
+			</tr>
+		</thead>
+	
+		<tbody>
+					{% for(var i=0, l=data.length; i<l; i++) { %}
+	
+				<tr>
+					{% if (i==data.length-1) { %}
+			
+					<td class="text-center" colspan="5" style="font-size:15px"><strong>Total</strong></td>
+		
+					<td class="total"><strong>{%= format_currency(data[i].vehicle_value, filters.presentation_currency).split('.')[0] %}</strong></td>
+					<td colspan="3"></td>
+					<td class="total"><strong>{%= format_currency(data[i].sum_insured, filters.presentation_currency).split('.')[0] %}</strong></td>
+					<td class="total"><strong>{%= format_currency(data[i].premium, filters.presentation_currency).split('.')[0] %}</strong></td>
+					<td><strong>
+						{%= data[i].rate.toFixed(2) %}%</strong></td>
+					                    
+					
+					<td colspan="2"><strong>{%= frappe.datetime.str_to_user(data[i].date) %}</strong></td>
+					
+	
+					{% } else { %}
+					<td>{%= i+1 %}</td>
+					<td>{%= data[i].license_plate %}</td>
+					<td>{%= data[i].possession %}</td>
+					<td>{%= data[i].model %}</td>
+					<td>{%= data[i].make_date %}</td>
+					<td>{%= format_currency(data[i].vehicle_value, filters.presentation_currency).split('.')[0] %}</td>
+					<td>{%= data[i].ownership %}</td>					
+					<td>{%= data[i].insurance_abr %}</td>
+					<td>{%= data[i].tracker %}</td>
+					<td>{%= format_currency(data[i].sum_insured, filters.presentation_currency).split('.')[0] %}</td>
+					
+					<td>{%= format_currency(data[i].premium, filters.presentation_currency).split('.')[0] %}</td>                    
+					<td>{%= data[i].rate %}%</td>
+					<td>{%= frappe.datetime.str_to_user(data[i].date) %}</td>
+					<td>{%= data[i].location %}</td>
+					{% } %}
+				</tr>
+			{% } %}
+
+		</tbody>
+	</table>
+	
+	<table class="table table-bordered small_table">
+	<thead>
+		<tr>
+			<th class="text-center" colspan="3" style="width: 15%">SUMMARY OF INSURANCE COMPANY WISE</th>
+		</tr>
+	<tr>
+				<th style="width: 5%">S.#</th>
+				<th style="width: 15%">PARTICULARS</th>
+				<th style="width: 10%">PREMIUM</th>
+	</tr>
+	</thead>
+	<tbody>
+	{% if (data.length>0) { %}
+
+			{% 
+				console.log(data);
+				data.sort(function(a, b) {
+					if(typeof a.insurance_company !== "undefined"){
+						var textA = a.insurance_company.toUpperCase();
+						var textB = b.insurance_company.toUpperCase();
+						return (textA < textB) ? -1 : (textA > textB) ? 1 : 0;
+					}
+				});
+				<!-- data.sort((a, b) => {
+					if(typeof a.insurance_company !== "undefined"){
+						a.insurance_company.localeCompare(b.insurance_company)
+					}
+				}); -->
+				console.log(data);
+				var previousInsurance = '  ';
+				var insuranceSummary = [];
+				for (const row of data) {
+
+				const currentInsurance = row['insurance_company'];
+				if (currentInsurance === undefined) {
+					continue;
+				}
+
+				if (currentInsurance.toLowerCase()  == previousInsurance.toLowerCase()) {
+					insuranceSummary[insuranceSummary.length - 1]['total'] += row['premium'];
+				} else {
+
+					insuranceSummary.push({
+					name: currentInsurance,
+					total: row['premium'],
+					});
+					previousInsurance = currentInsurance;
+				}
+				}
+				data[data.length - 2]['companies'] = insuranceSummary;
+            %}
+	{% } %}			
+				{% var grand_total = 0; %}
+			{% if (data.length > 0 && data[data.length-2].companies) { %}
+			{% for(var i=0; i<data[data.length-2].companies.length;i++) { %}            
+				<tr>
+					<td>{%= i+1 %}</td>
+					<td class="text-center">{%= data[data.length-2].companies[i].name || 'N/A' %} </td>
+					<td class="text-center">{%= format_currency(data[data.length-2].companies[i].total, filters.presentation_currency).split('.')[0] %}</td>
+				</tr>
+				{% grand_total += data[data.length-2].companies[i].total %}				
+				{% if (i==data[data.length-2].companies.length-1) { %}
+				<tr>
+					<td colspan="2"><strong>Total</strong></td>
+					<td class="text-center"><strong>{%= format_currency(grand_total, filters.presentation_currency).split('.')[0] %}</strong></td>
+				</tr>
+				{% } %}
+
+
+			{% } %}
+			{% } %}
+	</tbody>
+	
+	</table>
+		<!-- <h5 style="padding-left:12%"> <strong>Grand Total >>>> {%= format_currency(grand_total || 0, filters.presentation_currency).split('.')[0] %}</strong></h5> -->
+	
+	  
+
+
+{% var res = frappe.db.get_list('Vehicle Insurance', {
+	filters: {
+		'end_date': ['<=', frappe.datetime.nowdate()],
+		'vehicle_type': 'Car',
+	
+	},
+	fields: ['license_plate', 'possession', 'ownership', 'end_date'],
+	limit: 500,
+	order_by: 'end_date'
+}).then(res => {
+	return res
+
+}); %}
+{%
+var c = frappe.db.get_list('Vehicle Insurance', {
+	filters:{
+		'end_date': ['>', frappe.datetime.nowdate()],
+	},
+	fields: ['license_plate', 'possession', 'ownership', 'end_date'],
+	limit: 500,
+	order_by: 'end_date'
+	}).then(c => {
+		return c
+	});
+%}
+{%
+var veh = frappe.db.get_list('Vehicle', {
+	filters:{
+		'vehical_type': 'Car',
+	},
+	fields: ['license_plate', 'employee_name', 'ownership'],
+	limit: 500,
+	}).then(veh => {
+		return veh
+	});
+%}
+{%
+var veh_n = frappe.db.get_list('Vehicle Insurance', {
+	filters:{
+		'vehicle_type': 'Car',
+	},
+	fields: ['license_plate'],
+	limit: 500,
+	}).then(veh_n => {
+		return veh_n
+	});
+%}
+{%
+var expired=[];
+var not_in = [];
+const exp = async () => {
+  var a = await res;
+  var b = await c;
+  var z = await veh;
+  var f = await veh_n;
+console.log(a);
+console.log(b);
+for (const obj of a) {
+
+  if (!b.some(o => o.license_plate === obj.license_plate)) {
+    expired.push(obj);
+  }
+}
+for (const obj of z) {
+
+  if (!f.some(o => o.license_plate === obj.license_plate)) {
+    not_in.push(obj);
+  }
+}
+
+
+};
+%}
+{%
+exp();
+%}
+
+
+
+	<div class="row">
+			<div class="column">
+				<!-- {% var expired = []; %}
+				{% var not_in =[]; %} 
+			{% if(expired!=[]) { %}
+				{% expired = data[data.length-2].expired  || [] %}
+				{% not_in = data[data.length-2].not_in || [] %}
+				{% } %} -->
+				{% if(data.length>0) { %}
+				
+				
+			<table class="table table-bordered small_table" style="width: 95%">
+				<thead>
+					<tr>
+						<th class="text-center" colspan="4" style="width: 15%">Uninsured Vehicles</th>
+					</tr>
+					<tr>
+							<th style="width: 3%">S.#</th>
+							<th style="width: 13%">License Plate</th>
+							<th style="width: 13%">Employee Name</th>
+							<th style="width: 13%">Ownership</th>
+					</tr>
+				</thead>
+					<tbody>
+						{% console.log(not_in)%}
+						{% for(var i=0; i<not_in.length; i++) { %}       
+						<tr>
+						
+							<td>{%= i+1 %}</td>
+							<td>{%= not_in[i].license_plate %}</td>
+							<td>{%= not_in[i].employee_name %}</td> 
+							<td>{%= not_in[i].ownership %} </td>
+						</tr>
+						{% } %}
+				</tbody>
+				 
+			</table>
+			</div>
+	
+			<div class="column">
+				<table class="table table-bordered small_table" style="width: 95%">
+				<thead>
+					<tr>
+						<th class="text-center" colspan="5" style="width: 15%">Expired Insurance</th>
+					</tr>
+				<tr>
+							<th style="width: 3%">S.#</th>
+							<th style="width: 13%">License Plate</th>
+							<th style="width: 13%">Employee Name</th>
+							<th style="width: 5%">Ownership</th>
+							<th style="width: 13%">Expiry Date</th>
+							
+				</tr>
+				</thead>
+				<tbody>
+					{% for(var i=0; i<expired.length; i++) { %}       
+	
+					<tr>
+					<td>{%= i+1 %}</td>
+					<td>{%= expired[i].license_plate %}</td>
+					<td>{%= expired[i].possession %}</td> 
+					<td>{%= expired[i].ownership %}</td>
+					<td>{%= expired[i].end_date %} </td>
+	
+				</tr>
+				{% } %}
+				</tbody>
+				</table>
+			</div>
+		</div>
+		{% var not_in=[] %}
+		{% var expired=[] %}
+		{%	} %}

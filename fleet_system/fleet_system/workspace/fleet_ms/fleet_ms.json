@@ -1,0 +1,382 @@
+{
+ "charts": [],
+ "content": "[{\"id\":\"hIG_iUUIq3\",\"type\":\"header\",\"data\":{\"text\":\"<span class=\\\"h4\\\">Fleet MS</span>\",\"col\":12}},{\"id\":\"IN5b2fGV6M\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Vehicle\",\"col\":3}},{\"id\":\"x7vyA78QGA\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Vehicle Log\",\"col\":3}},{\"id\":\"UNrKVLaijz\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Fleet Dashboard\",\"col\":3}},{\"id\":\"XFhNLcp_1I\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Service Request Dashboard\",\"col\":3}},{\"id\":\"wVJpTWVErB\",\"type\":\"spacer\",\"data\":{\"col\":12}},{\"id\":\"lJOVCFp5-8\",\"type\":\"card\",\"data\":{\"card_name\":\"Vehicle\",\"col\":4}},{\"id\":\"LpCebZ8BAi\",\"type\":\"card\",\"data\":{\"card_name\":\"Accident/Repair\",\"col\":4}},{\"id\":\"sxlHJEIozy\",\"type\":\"card\",\"data\":{\"card_name\":\"Vehicle Log\",\"col\":4}},{\"id\":\"qhtDb1HWM4\",\"type\":\"card\",\"data\":{\"card_name\":\"Insurance\",\"col\":4}},{\"id\":\"_YjQArSU2Q\",\"type\":\"card\",\"data\":{\"card_name\":\"Driver\",\"col\":4}},{\"id\":\"pcTQb7Lbwi\",\"type\":\"card\",\"data\":{\"card_name\":\"PSO Fleet Cards\",\"col\":4}},{\"id\":\"bJcTzNO3KQ\",\"type\":\"card\",\"data\":{\"card_name\":\"Reports\",\"col\":4}}]",
+ "creation": "2025-08-13 16:22:05.606731",
+ "custom_blocks": [],
+ "custom_external_icon": "/files/fleetMS.png",
+ "docstatus": 0,
+ "doctype": "Workspace",
+ "for_user": "",
+ "hide_custom": 0,
+ "icon": "money-coins-1",
+ "idx": 1,
+ "indicator_color": "green",
+ "is_hidden": 0,
+ "label": "Fleet MS",
+ "links": [
+  {
+   "hidden": 0,
+   "is_query_report": 0,
+   "label": "Vehicle",
+   "link_count": 3,
+   "link_type": "DocType",
+   "onboard": 0,
+   "type": "Card Break"
+  },
+  {
+   "hidden": 0,
+   "is_query_report": 0,
+   "label": "Tracker",
+   "link_count": 0,
+   "link_to": "Tracker",
+   "link_type": "DocType",
+   "onboard": 0,
+   "type": "Link"
+  },
+  {
+   "hidden": 0,
+   "is_query_report": 0,
+   "label": "Vehicle",
+   "link_count": 0,
+   "link_to": "Fleet Vehicle",
+   "link_type": "DocType",
+   "onboard": 0,
+   "type": "Link"
+  },
+  {
+   "hidden": 0,
+   "is_query_report": 0,
+   "label": "Vehicle Assignment",
+   "link_count": 0,
+   "link_to": "Vehicle Assignment",
+   "link_type": "DocType",
+   "onboard": 0,
+   "type": "Link"
+  },
+  {
+   "hidden": 0,
+   "is_query_report": 0,
+   "label": "Accident/Repair",
+   "link_count": 3,
+   "link_type": "DocType",
+   "onboard": 0,
+   "type": "Card Break"
+  },
+  {
+   "hidden": 0,
+   "is_query_report": 0,
+   "label": "Accident Type",
+   "link_count": 0,
+   "link_to": "Accident Type",
+   "link_type": "DocType",
+   "onboard": 0,
+   "type": "Link"
+  },
+  {
+   "hidden": 0,
+   "is_query_report": 0,
+   "label": "Incident",
+   "link_count": 0,
+   "link_to": "Vehicle Incident",
+   "link_type": "DocType",
+   "onboard": 0,
+   "type": "Link"
+  },
+  {
+   "hidden": 0,
+   "is_query_report": 0,
+   "label": "Police Station",
+   "link_count": 0,
+   "link_to": "Police Station",
+   "link_type": "DocType",
+   "onboard": 0,
+   "type": "Link"
+  },
+  {
+   "hidden": 0,
+   "is_query_report": 0,
+   "label": "Vehicle Log",
+   "link_count": 5,
+   "link_type": "DocType",
+   "onboard": 0,
+   "type": "Card Break"
+  },
+  {
+   "hidden": 0,
+   "is_query_report": 0,
+   "label": "Supplier",
+   "link_count": 0,
+   "link_to": "Supplier",
+   "link_type": "DocType",
+   "onboard": 0,
+   "type": "Link"
+  },
+  {
+   "hidden": 0,
+   "is_query_report": 0,
+   "label": "Vehicle Log",
+   "link_count": 0,
+   "link_to": "Vehicle Log",
+   "link_type": "DocType",
+   "onboard": 0,
+   "type": "Link"
+  },
+  {
+   "hidden": 0,
+   "is_query_report": 0,
+   "label": "Vehicle Tax",
+   "link_count": 0,
+   "link_to": "Vehicle Tax",
+   "link_type": "DocType",
+   "onboard": 0,
+   "type": "Link"
+  },
+  {
+   "hidden": 0,
+   "is_query_report": 0,
+   "label": "Vehicle Tax Branch",
+   "link_count": 0,
+   "link_to": "Vehicle Tax Branch",
+   "link_type": "DocType",
+   "onboard": 0,
+   "type": "Link"
+  },
+  {
+   "hidden": 0,
+   "is_query_report": 0,
+   "label": "Vehicle Tax",
+   "link_count": 0,
+   "link_to": "Vehicle Tax",
+   "link_type": "DocType",
+   "onboard": 0,
+   "type": "Link"
+  },
+  {
+   "hidden": 0,
+   "is_query_report": 0,
+   "label": "Insurance",
+   "link_count": 2,
+   "link_type": "DocType",
+   "onboard": 0,
+   "type": "Card Break"
+  },
+  {
+   "hidden": 0,
+   "is_query_report": 0,
+   "label": "Insurance Company",
+   "link_count": 0,
+   "link_to": "Insurance Company",
+   "link_type": "DocType",
+   "onboard": 0,
+   "type": "Link"
+  },
+  {
+   "hidden": 0,
+   "is_query_report": 0,
+   "label": "Insurance Record",
+   "link_count": 0,
+   "link_to": "Vehicle Insurance",
+   "link_type": "DocType",
+   "onboard": 0,
+   "type": "Link"
+  },
+  {
+   "hidden": 0,
+   "is_query_report": 0,
+   "label": "Driver",
+   "link_count": 2,
+   "link_type": "DocType",
+   "onboard": 0,
+   "type": "Card Break"
+  },
+  {
+   "hidden": 0,
+   "is_query_report": 0,
+   "label": "Driver",
+   "link_count": 0,
+   "link_to": "Driver",
+   "link_type": "DocType",
+   "onboard": 0,
+   "type": "Link"
+  },
+  {
+   "hidden": 0,
+   "is_query_report": 0,
+   "label": "Driver Assignment",
+   "link_count": 0,
+   "link_to": "Driver Assignment",
+   "link_type": "DocType",
+   "onboard": 0,
+   "type": "Link"
+  },
+  {
+   "hidden": 0,
+   "is_query_report": 0,
+   "label": "PSO Fleet Cards",
+   "link_count": 3,
+   "link_type": "DocType",
+   "onboard": 0,
+   "type": "Card Break"
+  },
+  {
+   "hidden": 0,
+   "is_query_report": 0,
+   "label": "PSO Fuel Card",
+   "link_count": 0,
+   "link_to": "PSO Fleet Card",
+   "link_type": "DocType",
+   "onboard": 0,
+   "type": "Link"
+  },
+  {
+   "hidden": 0,
+   "is_query_report": 0,
+   "label": "Card Update",
+   "link_count": 0,
+   "link_to": "PSO Card Update",
+   "link_type": "DocType",
+   "onboard": 0,
+   "type": "Link"
+  },
+  {
+   "hidden": 0,
+   "is_query_report": 0,
+   "label": "PSO Card Usage",
+   "link_count": 0,
+   "link_to": "PSO Card Usage",
+   "link_type": "DocType",
+   "onboard": 0,
+   "type": "Link"
+  },
+  {
+   "hidden": 0,
+   "is_query_report": 0,
+   "label": "Reports",
+   "link_count": 7,
+   "link_type": "DocType",
+   "onboard": 0,
+   "type": "Card Break"
+  },
+  {
+   "hidden": 0,
+   "is_query_report": 0,
+   "label": "Vehicle Expenses Report",
+   "link_count": 0,
+   "link_to": "Vehicle Expenses Report",
+   "link_type": "Report",
+   "onboard": 0,
+   "report_ref_doctype": "Fleet Vehicle",
+   "type": "Link"
+  },
+  {
+   "hidden": 0,
+   "is_query_report": 0,
+   "label": "Vehicle Insurance",
+   "link_count": 0,
+   "link_to": "Vehicle Insurance",
+   "link_type": "Report",
+   "onboard": 0,
+   "report_ref_doctype": "Fleet Vehicle",
+   "type": "Link"
+  },
+  {
+   "hidden": 0,
+   "is_query_report": 0,
+   "label": "Vehicle Tax",
+   "link_count": 0,
+   "link_to": "Vehicle Tax Report",
+   "link_type": "Report",
+   "onboard": 0,
+   "report_ref_doctype": "Vehicle Tax",
+   "type": "Link"
+  },
+  {
+   "hidden": 0,
+   "is_query_report": 0,
+   "label": "Vehicle History",
+   "link_count": 0,
+   "link_to": "Vehicle History Report",
+   "link_type": "Report",
+   "onboard": 0,
+   "report_ref_doctype": "Fleet Vehicle",
+   "type": "Link"
+  },
+  {
+   "hidden": 0,
+   "is_query_report": 0,
+   "label": "Vehicle Supplier Report",
+   "link_count": 0,
+   "link_to": "Vehicle Supplier Report",
+   "link_type": "Report",
+   "onboard": 0,
+   "report_ref_doctype": "Fleet Vehicle",
+   "type": "Link"
+  },
+  {
+   "hidden": 0,
+   "is_query_report": 0,
+   "label": "Vehicle Assignment History",
+   "link_count": 0,
+   "link_to": "Vehicle Assignment History",
+   "link_type": "Report",
+   "onboard": 0,
+   "report_ref_doctype": "Fleet Vehicle",
+   "type": "Link"
+  },
+  {
+   "hidden": 0,
+   "is_query_report": 0,
+   "label": "Service Expense",
+   "link_count": 0,
+   "link_to": "Service Expense",
+   "link_type": "Report",
+   "onboard": 0,
+   "report_ref_doctype": "Fleet Vehicle",
+   "type": "Link"
+  }
+ ],
+ "modified": "2025-08-15 11:27:09.572070",
+ "modified_by": "Administrator",
+ "module": "Fleet System",
+ "name": "Fleet MS",
+ "number_cards": [],
+ "owner": "Administrator",
+ "parent_page": "",
+ "public": 1,
+ "quick_lists": [],
+ "roles": [],
+ "sequence_id": 1.0,
+ "shortcuts": [
+  {
+   "color": "Grey",
+   "doc_view": "List",
+   "label": "Vehicle",
+   "link_to": "Fleet Vehicle",
+   "stats_filter": "[]",
+   "type": "DocType"
+  },
+  {
+   "color": "Grey",
+   "doc_view": "List",
+   "label": "Service Request Dashboard",
+   "link_to": "Service Request Dashboard",
+   "type": "Dashboard"
+  },
+  {
+   "color": "Grey",
+   "doc_view": "List",
+   "label": "Fleet Dashboard",
+   "link_to": "Fleet Dashboard",
+   "type": "Dashboard"
+  },
+  {
+   "color": "Grey",
+   "doc_view": "List",
+   "label": "Vehicle Log",
+   "link_to": "Vehicle Log",
+   "stats_filter": "[]",
+   "type": "DocType"
+  }
+ ],
+ "title": "Fleet MS"
+}

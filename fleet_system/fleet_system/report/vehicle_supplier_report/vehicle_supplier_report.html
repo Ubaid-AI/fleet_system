@@ -1,0 +1,113 @@
+<style>
+    .text-center, th, td{
+        text-align: center
+    }
+    table{
+        table-layout: auto;
+        width: 95%;
+        vertical-align: middle !important; 
+        margin-left: 48px;
+    }
+    .row {
+  display: flex;
+  margin-left:-5px;
+  margin-right:-5px;
+}
+
+.column {
+  flex: 100%;
+  padding: 5px;
+}
+    .small_table {
+        border-collapse: collapse;
+    }
+    h1{
+        font-size: 30px;
+    }
+    </style>
+    
+    <h1 class="text-center"><strong>{%= __("Vehicle Supplier Report") %}</h1></strong>
+    <h4 class="text-center">
+        {% if (filters.vehicle) { %}
+            {%= filters.license_plate %}
+        {% } else if (filters.employee_name) { %}
+            {%= filters.employee %}
+        {% } else if (filters.supplier) { %}
+            {%= filters.supplier %}
+        {% } else if (filters.invoice) { %}
+        {%= filters.invoice %}
+        {% } %}
+    </h4>
+    
+    
+    <h4 class="text-center">
+    {% if (filters.from_date) { %}
+        {%= __("Expenses From") %}
+        {%= frappe.datetime.str_to_user(filters.from_date) %}
+        {%= __("To") %}
+        {%= frappe.datetime.str_to_user(filters.to_date) %}
+    {% } %}
+    </h4>
+    <strong><p class="text-right text-muted">Printed On {%= frappe.datetime.str_to_user(frappe.datetime.get_datetime_as_string()) %}</p></strong>
+    
+    <hr>
+    <table class="table table-bordered">
+        <thead>
+            <tr>
+                <th >{%= __("S No.") %}</th>
+                <th>{%= __("Supplier") %}</th>
+                <th >{%= __("Slip No.") %}</th>
+                <th>{%= __("Vehicle") %}</th>
+                <th>{%= __("Employee") %}</th>
+                <th >{%= __("Date") %}</th>
+                <th>{%= __("Make") %}</th>
+                <th >{%= __("Quantity") %}</th>
+                <th >{%= __("Rate") %}</th>
+                <th >{%= __("Fuel Total") %}</th>
+                <th >{%= __("Service Total") %}</th>
+                <th >{%= __("Total") %}</th>
+            </tr>
+        </thead>
+        <tbody>
+
+            {% for(var i=0, l=data.length; i<l; i++) { %}
+            <tr>
+                {% if (i==data.length-1) { %}
+    
+            <td class="text-center" colspan="7" style="font-size:15px"><strong>Total</strong></td>
+
+            
+            <td><strong>{%= data[i].fuel_qty.toFixed(2) %}</strong></td>
+            <td><strong>{%= format_currency(data[i].price, filters.presentation_currency).split('.')[0] %}</strong></td>
+            <td><strong>{%= format_currency(data[i].total_price, filters.presentation_currency).split('.')[0] %}</strong></td>
+            <td><strong>{%= format_currency(data[i].service_expense, filters.presentation_currency).split('.')[0] %}</strong></td>                    
+            <td><strong>{%= format_currency(data[i].total, filters.presentation_currency).split('.')[0] %}</strong></td>                    
+                
+            
+
+
+            {% } else { %}
+                <td>{%= i+1 %}</td>
+                <td>{%= data[i].supplier %}</td>
+                <td>{%= data[i].invoice %}</td>
+                <td>{%= data[i].license_plate %}</td>
+                <td>{%= data[i].employee_name %}</td>
+                <td>{%= frappe.datetime.str_to_user(data[i].date) %}</td>
+
+                <td>{%= data[i].make %}</td>
+                <td>{%= data[i].fuel_qty %}</strong></td>
+                <td>{%= format_currency(data[i].price, filters.presentation_currency).split('.')[0] %}</td>
+                <td>{%= format_currency(data[i].total_price, filters.presentation_currency).split('.')[0] %}</td>                    
+                <td>{%= format_currency(data[i].service_expense, filters.presentation_currency).split('.')[0] %}</td>                    
+                <td>{%= format_currency(data[i].total, filters.presentation_currency).split('.')[0] %}</td>    
+
+            {% } %}
+
+        
+                </tr>
+            {% } %}
+        </tbody>
+    </table>
+    
+    
+   

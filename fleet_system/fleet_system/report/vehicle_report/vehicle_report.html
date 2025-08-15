@@ -1,0 +1,105 @@
+<style>
+    .text-center, th, td{
+        text-align: center
+    }
+    table{
+        table-layout: auto;
+        width: 95%;
+        vertical-align: middle !important; 
+        margin-left: 48px;
+    }
+    .row {
+  display: flex;
+  margin-left:-5px;
+  margin-right:-5px;
+}
+
+.column {
+  flex: 100%;
+  padding: 5px;
+}
+    .small_table {
+        border-collapse: collapse;
+    }
+    h1{
+        font-size: 30px;
+    }
+    </style>
+    
+    <h1 class="text-center"><strong>{%= __("Vehicle Report") %}</h1></strong>
+    <h4 class="text-center">
+        {% if (filters.vehicle) { %}
+            {%= filters.license_plate %}
+        {% } else if (filters.employee_name) { %}
+            {%= filters.employee %}
+        {% } %}
+    </h4>
+    
+    
+    <!-- <h4 class="text-center">
+    {% if (filters.from_date) { %}
+        {%= __("Expenses From") %}
+        {%= frappe.datetime.str_to_user(filters.from_date) %}
+        {%= __("To") %}
+        {%= frappe.datetime.str_to_user(filters.to_date) %}
+    {% } %}
+    </h4> -->
+
+    <strong><p class="text-right text-muted">Printed On {%= frappe.datetime.str_to_user(frappe.datetime.get_datetime_as_string()) %}</p></strong>
+    
+    <hr>
+    <table class="table table-bordered">
+        <thead>
+            <tr>
+                <th >{%= __("S No.") %}</th>
+                <th >{%= __("Reg: No") %}</th>
+                <th>{%= __("Model") %}</th>
+                <th >{%= __("Year") %}</th>
+                <th>{%= __("Ownership") %}</th>
+                <th>{%= __("Possession") %}</th>
+                <th>{%= __("Driver") %}</th>
+                <th >{%= __("Tracker") %}</th>
+                <th >{%= __("Purchase") %}</th>
+                <th >{%= __("Market Value") %}</th>
+                <th >{%= __("Location") %}</th>
+            </tr>
+        </thead>
+        <tbody>
+
+            {% for(var i=0, l=data.length; i<l; i++) { %}
+            <tr>
+                {% if (i==data.length-1) { %}
+    
+            <td class="text-center" colspan="8" style="font-size:15px"><strong>Total</strong></td>
+
+            
+            <td><strong>{%= format_currency(data[i].vehicle_value, filters.presentation_currency).split('.')[0] %}</strong></td>
+            <td><strong>{%= format_currency(data[i].market_value, filters.presentation_currency).split('.')[0] %}</strong></td>                
+            <td></td>
+            
+
+
+            {% } else { %}
+                <td>{%= i+1 %}</td>
+                <td>{%= data[i].license_plate %}</td>
+                <td>{%= data[i].model %}</td>
+                <td>{%= data[i].make_date %}</td>
+                <td>{%= data[i].ownership %}</td>
+                <td>{%= data[i].employee_name %}</td>
+                <td>{%= data[i].driver_name %}</td>
+                <td>{%= data[i].tracker %}</strong></td>
+                <td>{%= format_currency(data[i].vehicle_value, filters.presentation_currency).split('.')[0] %}</td>
+                <td>{%= format_currency(data[i].market_value, filters.presentation_currency).split('.')[0] %}</td>                    
+                <td>{%= data[i].location %}</td>                    
+        
+
+            {% } %}
+
+        
+                </tr>
+            {% } %}
+        </tbody>
+    </table>
+    
+    
+   

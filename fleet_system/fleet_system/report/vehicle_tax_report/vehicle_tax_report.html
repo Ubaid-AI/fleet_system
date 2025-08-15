@@ -1,0 +1,259 @@
+<style>
+    .text-center, th, td{
+        text-align: center
+    }
+    table{
+        table-layout: auto;
+        width: 95%;
+        vertical-align: middle !important; 
+        margin-left: 48px;
+    }
+    .row {
+  display: flex;
+  margin-left:-5px;
+  margin-right:-5px;
+}
+
+tr:nth-child(even) {
+    background-color: #f2f2f2;
+  }
+
+.column {
+  flex: 100%;
+  padding: 5px;
+}
+    .small_table {
+        border-collapse: collapse;
+    }
+    h1{
+        font-size: 30px;
+    }
+    </style>
+    
+    <h1 class="text-center"><strong>{%= __("Vehicle Tax") %}</h1></strong>
+    <h4 class="text-center">
+        {% if (filters.vehicle) { %}
+            {%= filters.license_plate %}
+        {% } else if (filters.challan_no) { %}
+            {%= filters.challan_no %}
+        {% } %}
+    </h4>
+    
+    
+    <h4 class="text-center">
+    {% if (filters.from_date) { %}
+        {%= __("Expenses From") %}
+        {%= frappe.datetime.str_to_user(filters.from_date) %}
+        {%= __("To") %}
+        {%= frappe.datetime.str_to_user(filters.to_date) %}
+    {% } %}
+    </h4>
+    <strong><p class="text-right text-muted">Printed On {%= frappe.datetime.str_to_user(frappe.datetime.get_datetime_as_string()) %}</p></strong>
+    
+    <hr>
+    <table class="table table-bordered">
+        <thead>
+            <tr>
+                <th >{%= __("S #") %}</th>
+                <th >{%= __("Vehicle #") %}</th>
+                <th >{%= __("Engine #") %}</th>
+                <th >{%= __("Chassis #") %}</th>
+                <th >{%= __("Branch") %}</th>
+                <th >{%= __("From") %}</th>
+                <th >{%= __("Upto") %}</th>
+                <th >{%= __("Challan #") %}</th>
+                <th >{%= __("Amount") %}</th>
+                <th >{%= __("Last Challan #") %}</th>
+                <th >{%= __("Last Amount Paid") %}</th>
+
+                            
+            </tr>
+        </thead>
+        <tbody>
+
+            {% for(var i=0, l=data.length; i<l; i++) { %}
+                <tr>
+                    {% if (i==data.length-1) { %}
+		
+				<td>{%= i+1 %}</td>
+                <td class="text-center" colspan="7" style="font-size:15px"><strong>Total</strong></td>
+
+                
+                <td><strong>{%= format_currency(data[i].cash_amount, filters.presentation_currency) %}</strong></td>
+                <td></td>
+                <td><strong>{%= format_currency(data[i].last_amount_paid, filters.presentation_currency) %}</strong></td>                    
+                
+
+
+				{% } else { %}
+                    <td>{%= i+1 %}</td>
+                    <td>{%= data[i].license_plate %}</td>
+                    <td>{%= data[i].engine_no %}</td>
+                    <td>{%= data[i].chassis_no %}</td>
+                    
+                    <td>{%= data[i].branch_name %}</td>
+                    <td>{%= frappe.datetime.str_to_user(data[i].tax_paid_from) %}</td>
+                    <td>{%= frappe.datetime.str_to_user(data[i].upto) %}</td>
+
+                    <td>{%= data[i].challan_no %}</td>
+                    
+                    
+                    <td>{%= format_currency(data[i].cash_amount, filters.presentation_currency) %}</td>                    
+                    <td >
+                        {%= parseInt(data[i].last_challan_no)  %}</td>
+                    <td >
+                        {%= format_currency(data[i].last_amount_paid, filters.presentation_currency) %}</td>
+    
+                {% } %}
+    
+        
+                </tr>
+            {% } %}
+        </tbody>
+    </table>
+
+
+    
+{% var vehicles = frappe.db.get_list('Vehicle', {
+	filters: {
+		'vehical_type': 'Car',
+	},
+	fields: ['license_plate', 'employee_name', 'ownership'],
+	limit: 500,
+    order_by: 'license_plate',
+}).then(vehicles => {
+	return vehicles
+
+}); %}
+{% 
+    var vehicle_tax = frappe.db.get_list('Vehicle Tax', {
+	fields: ['license_plate', 'upto'],
+	limit: 500,
+    order_by: 'license_plate',
+	}).then(vehicle_tax => {
+		return vehicle_tax
+	});
+%}
+
+
+
+{%
+var not_in_tax = [];
+var not_paid = [];
+var not_in = [];
+var notInTax = [];
+var expiredTax = [];
+const exp = async () => {
+  var vh = await vehicles;
+  var vt = await vehicle_tax;
+  
+notInTax = vh.filter(vehicle => {
+  return !vt.find(data => data.license_plate == vehicle.license_plate);
+}).map(vehicle => {
+  return {
+    license_plate: vehicle.license_plate,
+    employee_name: vehicle.employee_name,
+    ownership: vehicle.ownership,
+  };
+});
+
+
+
+var greater = vt.filter(data => {return data.upto > frappe.datetime.nowdate();});
+
+expiredTax = vt.filter(data => {return data.upto < frappe.datetime.nowdate();}).map(data => {
+  return {
+    license_plate: data.license_plate,
+    employee_name: vh.find(vehicle => vehicle.license_plate == data.license_plate).employee_name,
+    ownership: vh.find(vehicle => vehicle.license_plate === data.license_plate).ownership,
+    expiry_date: data.upto,
+  };
+});
+
+for (const obj of expiredTax){
+    const index = greater.findIndex(data => data.license_plate === obj.license_plate);
+    console.log(index);
+
+  if (index == -1) {
+    not_paid.push(obj);
+  }
+}
+console.log(not_paid);
+
+};
+
+%}
+
+{%
+exp();
+%}
+{% console.log(not_paid) %}
+
+    <div class="row">
+        <div class="column">
+            {% var not_paid = []; %}
+            {% var not_in_tax = []; %}
+            {% not_paid = data[data.length-2].not_paid  || [] %}
+            {% not_in_tax = data[data.length-2].not_in_tax || [] %}
+            
+        <table class="table table-bordered small_table">
+            <thead>
+                <tr>
+                    <th class="text-center" colspan="5" style="width: 15%">Tax-Unpaid</th>
+                </tr>
+                <tr>
+                        <th style="width: 5%">S.#</th>
+                        <th style="width: 15%">License Plate</th>
+                        <th style="width: 15%">Employee Name</th>
+                        <th style="width: 15%">Ownership</th>
+                </tr>
+            </thead>
+                <tbody>
+                    {% for(var i=0; i<not_in_tax.length; i++) { %}       
+                    {% console.log(' ') %}
+                    <tr>
+                        <td>{%= i+1 %}</td>
+                        <td>{%= not_in_tax[i].license_plate %}</td>
+                        <td>{%= not_in_tax[i].employee_name %}</td> 
+                        <td>{%= not_in_tax[i].ownership %} </td>
+                    </tr>
+                    {% } %}
+            </tbody>
+             
+        </table>
+        </div>
+
+        <div class="column">
+            <table class="table table-bordered small_table">
+            <thead>
+                <tr>
+                    <th class="text-center" colspan="5" style="width: 15%">Tax-Expired</th>
+                </tr>
+            <tr>
+                        <th style="width: 5%">S.#</th>
+                        <th style="width: 15%">License Plate</th>
+                        <th style="width: 15%">Employee Name</th>
+                        <th style="width: 15%">Ownership</th>
+                        <th style="width: 15%">Expiry Date</th>
+                        
+            </tr>
+            </thead>
+            <tbody>
+                {% for(var i=0; i<not_paid.length; i++) { %}       
+
+                <tr>
+                <td>{%= i+1 %}</td>
+                <td>{%= not_paid[i].license_plate %}</td>
+                <td>{%= not_paid[i].employee_name %}</td> 
+                <td>{%= not_paid[i].ownership %}</td>
+                <td>{%= not_paid[i].upto %} </td>
+
+            </tr>
+            {% } %}
+            </tbody>
+            </table>
+        </div>
+    </div>
+    {% var not_paid = []; %}
+    {% var not_in_tax =[]; %}
+   

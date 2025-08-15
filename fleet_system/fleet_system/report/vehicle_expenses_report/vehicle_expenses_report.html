@@ -1,0 +1,101 @@
+<style>
+.text-center, th, td{
+    text-align: center
+}
+table{
+	table-layout: auto;
+  	width: 95%;
+	vertical-align: middle !important; 
+	margin-left: 48px;
+}
+
+.small_table {
+  border-collapse: collapse;
+  width: 50%;
+}
+h1{
+	font-size: 30px;
+}
+</style>
+
+<h1 class="text-center"><strong>{%= __("Vehicle Expenses") %}</h1></strong>
+<h4 class="text-center">
+	{% if (filters.vehicle) { %}
+		{%= filters.vehicle %}
+	{% } else if (filters.employee) { %}
+		{%= filters.employee %}
+	{% } %}
+</h4>
+
+
+<h4 class="text-center">
+{% if (filters.from_date) { %}
+    {%= __("Expenses From") %}
+	{%= frappe.datetime.str_to_user(filters.from_date) %}
+	{%= __("To") %}
+	{%= frappe.datetime.str_to_user(filters.to_date) %}
+{% } %}
+</h4>
+<strong><p class="text-right text-muted">Printed On {%= frappe.datetime.str_to_user(frappe.datetime.get_datetime_as_string()) %}</p></strong>
+
+<hr>
+<table class="table table-bordered">
+	<thead>
+		<tr>
+            <th >{%= __("S. No.") %}</th>
+            <th >{%= __("Employee") %}</th>
+			<th >{%= __("Vehicle") %}</th>
+			<th >{%= __("Make") %}</th>
+			<th >{%= __("Model") %}</th>
+			<th >{%= __("Odometer") %}</th>
+			<th >{%= __("Date") %}</th>
+			<th >{%= __("Fuel Qty") %}</th>
+			<th >{%= __("Fuel Price/Ltr") %}</th>
+			<th >{%= __("Fuel Expense") %}</th>
+			<th >{%= __("Service Expense") %}</th>
+			            
+		</tr>
+	</thead>
+	<tbody>
+		{% for(var i=0, l=data.length; i<l; i++) { %}
+            <tr>
+            {% if(data[i].employee) { %}
+            
+                <td>{%= i+1 %}</td>
+                <td>{%= data[i].employee_name %}</td>
+                <td>{%= data[i].vehicle %}</td>
+                <td>{%= data[i].make %}</td>
+                
+                <td>{%= data[i].model %}</td>
+                
+                <td>{%= data[i].odometer %}</td>
+                
+                <td>{%= frappe.datetime.str_to_user(data[i].date) %}</td>
+                <td>{%= data[i].fuel_qty %}</td>
+                
+                <td>{%= format_currency(data[i].fuel_price, filters.presentation_currency).split('.')[0] %}</td>                    
+                <td >
+                    {%= format_currency(data[i].fuel_expense, filters.presentation_currency).split('.')[0] %}</td>
+                <td >
+                    {%= format_currency(data[i].service_expense, filters.presentation_currency).split('.')[0] %}</td>
+
+            {% } else { %}
+                
+                <td class="text-center" colspan="6" style="font-size:15px"><strong>Total</strong></td>
+
+                <!-- <td><strong>{%= data[i].odometer %}</strong></td> -->
+                <td></td>
+
+                <td><strong>{%= data[i].fuel_qty.toFixed(2) %}</strong></td>
+                
+                <td><strong>{%= format_currency(data[i].fuel_price, filters.presentation_currency).split('.')[0] %}</strong></td>                    
+                <td ><strong>
+                    {%= format_currency(data[i].fuel_expense, filters.presentation_currency).split('.')[0] %}</strong></td>
+                <td ><strong>
+                    {%= format_currency(data[i].service_expense, filters.presentation_currency).split('.')[0] %}</strong></td>
+            {% } %}
+		    </tr>
+		{% } %}
+	</tbody>
+</table>
+

@@ -1,0 +1,70 @@
+
+<style>
+    .text-center, th{
+        text-align: center
+    }
+    table{
+        table-layout: auto;
+          width: 95%;
+        vertical-align: middle !important; 
+        margin-left: 48px;
+    }
+    
+    .small_table {
+      border-collapse: collapse;
+      width: 50%;
+    }
+    h1{
+        font-size: 30px;
+    }
+    </style>
+    
+    <h1 class="text-center"><strong>{%= __("Vehicle Assignment History") %}</strong></h2>
+    
+    <h4 class="text-center">
+        {% if (filters.license_plate) { %}
+            {%= filters.license_plate %}
+        {% } else if (filters.modified_by) { %}
+            {%= filters.modified_by %}
+        {% } %}
+    </h4>
+    
+
+    <strong><p class="text-right text-muted">Printed On {%= frappe.datetime.str_to_user(frappe.datetime.get_datetime_as_string()) %}</p></strong>
+    
+    <hr>
+    <table class="table table-bordered">
+    
+    
+        <thead>
+            <tr>
+                <th>{%= __("#") %}</th>
+                <th>{%= __("Modified On") %}</th>
+                <th>{%= __("Modified By") %}</th>
+                <th>{%= __("Vehicle") %}</th>
+                <th>{%= __("Modified Field") %}</th>
+                <th>{%= __("Previously Assigned To") %}</th>
+                <th>{%= __("Currently Assigned To") %}</th>         
+            </tr>
+        </thead>
+    
+        <tbody>
+    
+            {% for(var i=0, l=data.length; i<l; i++) { %}
+    
+                <tr>
+                
+                    <td>{%= i+1 %}</td>
+                    <td>{%= data[i].modified %}</td>
+                    <td>{%= data[i].modified_by %}</td>
+                    <td>{%= data[i].docname %}</td>
+                    <td>{%= data[i].modified_field %}</td>
+
+                    <td>{%= data[i].previous_value %}</td>
+                    <td>{%= data[i].new_value %}</td>
+                    
+            {% } %}
+        </tbody>
+    </table>
+    
+    

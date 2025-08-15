@@ -1,0 +1,54 @@
+
+<style>
+.text-center, th{
+    text-align: center
+}
+table{
+	table-layout: auto;
+  	width: 95%;
+	vertical-align: middle !important;
+	margin-left: 48px;
+}
+</style>
+
+<h1 class="text-center"><strong>{%= __("Driver Details") %}</strong></h2>
+
+<strong><p class="text-right text-muted">Printed On {%= frappe.datetime.str_to_user(frappe.datetime.get_datetime_as_string()) %}</p></strong>
+
+<hr>
+<table class="table table-bordered">
+    <thead>
+		<tr>
+			<th>{%= __("#") %}</th>
+			<th>{%= __("Driver") %}</th>
+			<th>{%= __("License Number") %}</th>
+			<th>{%= __("License Expiry") %}</th>
+			<th>{%= __("Vehicle No") %}</th>
+			<th>{%= __("Model") %}</th>
+			<th>{%= __("Vehicle Holder") %}</th>
+			
+		</tr>
+	</thead>
+
+	<tbody>
+		{% for(var i=0, l=data.length; i<l; i++) { %}
+
+            <tr>
+            
+				<td>{%= i+1 %}</td>
+                <td>{%= data[i].full_name %}</td>
+             
+                <td>{%= data[i].license_number %}</td>
+                
+                <td>{%= frappe.datetime.str_to_user(data[i].expiry_date) %}</td>
+				<td>{%= data[i].name %}</td>
+                <td>{%= data[i].model %}</td>
+        
+                <td>{%= data[i].employee_name %}</td>
+                
+
+		
+		    </tr>
+		{% } %}
+	</tbody>
+</table>

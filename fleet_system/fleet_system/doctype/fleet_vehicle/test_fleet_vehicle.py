@@ -4,5 +4,5 @@
 # import frappe
 import unittest
 
-class TestVehicle(unittest.TestCase):
+class TestFleetVehicle(unittest.TestCase):
 	pass
