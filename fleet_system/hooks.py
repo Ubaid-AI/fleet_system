@@ -173,3 +173,9 @@ user_data_fields = [
 # 	"fleet_system.auth.validate"
 # ]
 
+# apps/fleet_system/fleet_system/hooks.py
+
+fixtures = [
+    # Scripts & automations
+    {"dt": "Client Script", "filters": [["module", "=", "Fleet System"]]}, 
+]

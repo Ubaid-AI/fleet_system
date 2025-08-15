@@ -1,0 +1,13 @@
+[
+ {
+  "docstatus": 0,
+  "doctype": "Client Script",
+  "dt": "Vehicle Tax",
+  "enabled": 1,
+  "modified": "2025-08-13 18:20:30.703276",
+  "module": "Fleet System",
+  "name": "Vehicle Tax-Form",
+  "script": "// frappe.ui.form.on('Vehicle Tax', {\n// \trefresh(frm) {\n// \t\t// your code here\n// \t}\n// })\n\nfrappe.ui.form.on(\"Vehicle Tax Item\", {\namount:function(frm, cdt, cdn){\nvar d = locals[cdt][cdn];\nvar total = 0;\nfrm.doc.table_31.forEach(function(d) { total += d.amount; });\nfrm.set_value(\"cash_amount\", total);\nrefresh_field(\"cash_amount\");\n},\ntable_2_remove:function(frm, cdt, cdn){\nvar d = locals[cdt][cdn];\nvar total = 0;\nfrm.doc.table_31.forEach(function(d) { total += d.amount; });\nfrm.set_value(\"cash_amount\", total);\nrefresh_field(\"cash_amount\");\n}\n});",
+  "view": "Form"
+ }
+]
