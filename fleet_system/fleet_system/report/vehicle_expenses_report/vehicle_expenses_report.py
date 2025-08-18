@@ -161,13 +161,44 @@ def get_conditions(filters):
 	return conditions, values
 
 
+# apps/fleet_system/.../vehicle_expenses.py
+
+from frappe.utils import getdate, nowdate
+import frappe
+
 def get_period_dates(filters):
-	if filters.filter_based_on == 'Fiscal Year' and filters.fiscal_year:
-		fy = frappe.db.get_value('Fiscal Year', filters.fiscal_year,
-			['year_start_date', 'year_end_date'], as_dict=True)
-		return fy.year_start_date, fy.year_end_date
-	else:
-		return filters.from_date, filters.to_date
+    # 1) Date Range explicitly selected
+    if filters.get("filter_based_on") == "Date Range":
+        if not (filters.get("from_date") and filters.get("to_date")):
+            frappe.throw("Please set both From Date and To Date.")
+        return getdate(filters.from_date), getdate(filters.to_date)
+
+    # 2) Fiscal Year selected -> try to load it
+    fy_name = (filters.get("fiscal_year") or "").strip()
+    if fy_name:
+        fy = frappe.db.get_value(
+            "Fiscal Year",
+            {"name": fy_name},
+            ["year_start_date", "year_end_date"],
+            as_dict=True,
+        )
+        if fy:
+            return fy["year_start_date"], fy["year_end_date"]
+
+        # Either be strict...
+        # frappe.throw(f"Fiscal Year '{fy_name}' not found.")
+        # ...or be forgiving and infer from dates/today. Pick one. Below is the forgiving path:
+
+    # 3) Fallback: infer a fiscal year from a provided date or today
+    try:
+        from erpnext.accounts.utils import get_fiscal_year
+        base_date = filters.get("from_date") or filters.get("to_date") or nowdate()
+        _, year_start, year_end = get_fiscal_year(base_date)
+        return year_start, year_end
+    except Exception:
+        # Last resort: if we can't infer, require date range
+        frappe.throw("Select a valid Fiscal Year or switch filter to Date Range with From/To dates.")
+
 
 
 def get_service_expense(logname):

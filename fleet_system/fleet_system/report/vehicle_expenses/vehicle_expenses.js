@@ -1,8 +1,6 @@
 // Copyright (c) 2016, Frappe Technologies Pvt. Ltd. and contributors
 // For license information, please see license.txt
-/* eslint-disable */
-
-frappe.query_reports["Service Expense"] = {
+frappe.query_reports["Vehicle Expenses"] = {
 	"filters": [
 		{
 			"fieldname": "filter_based_on",
@@ -38,10 +36,16 @@ frappe.query_reports["Service Expense"] = {
 			"default": frappe.datetime.nowdate()
 		},
 		{
-			"fieldname": "license_plate",
+			"fieldname": "vehicle",
 			"label": __("Vehicle"),
 			"fieldtype": "Link",
-			"options": "Fleet Vehicle"
+			"options": "Vehicle"
+		},
+		{
+			"fieldname": "employee",
+			"label": __("Employee"),
+			"fieldtype": "Link",
+			"options": "Employee"
 		}
 	]
 };
